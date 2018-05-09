@@ -3,52 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/origin/common.css">
+<link rel="stylesheet" type="text/css" href="common.css">
 <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 <title>SIGN UP</title>
 </head>
 <body>
 
-<h1 class="title">会員登録</h1>
-
-<form class="login-form" action="SignUpServlet" method="post">
-<input type="hidden" name="id">
-<div class="form-group">
-   		 <label for="exampleInputPassword1">氏名</label>
-    	<input type="text" class="form-control" id="name" name="name" required>
- 	</div>
-
-  	<div class="form-group">
-    <label for="exampleInputPassword1">生年月日</label>
-   <input type="date" name="calendar" max="9999-12-31">
+<div class="jumbotron">
+<div class="dateform">
+<form class="p-3 mb-2 bg-white text-dark">
+<h1 class="title" >SIGN UP</h1>
+  <div class="form-group row">
+    <label for="inputLoginID" class="col-sm-2 col-form-label">ログインID</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
   </div>
-  	<div class="form-group">
-    	<label for="Login ID">郵便番号(半角数字)</label>
-  		<input type="text" name="zip21" class="form-control" size="4" maxlength="3"> － <input  type="text" name="zip22" class="form-control" size="5" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip21','zip22','addr21','addr21');">
-  	</div>
- 	<div class="form-group">
-    	<label for="Login ID">都道府県 + 以降の住所</label>
-    	<input type="text" class="form-control" name="addr21" size="40"  required>
-  	</div>
-   	<div class="form-group">
-    	<label for="Login ID">ログインID</label>
-   	 	<input type="text" class="form-control" id="LoginID" name="loginId" required>
-  	</div>
-  	<div class="form-group" >
-    	<label for="exampleInputPassword1">パスワード</label>
-    	<input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
-  	</div>
- 	 <div class="form-group">
-    	<label for="exampleInputPassword1">パスワード(確認)</label>
-    	<input type="password" class="form-control" id="exampleInputPassword1" name="passwordcheck" required>
- 	 </div>
-	<div class="button_wrapper">
-	<button type="submit" class="btn btn-danger">登録</button>
+  <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">氏名</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" >
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">生年月日</label>
+    <div class="col-sm-10">
+   	<input type="date" name="calendar" class="form-control" max="9999-12-31">
+    </div>
+    </div>
+  <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">郵便番号</label>
+    <div class="col-sm-10">
+    <input type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');"  placeholder="半角数字7桁">
+    </div>
+  </div>
+    <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">都道府県 + 以降の住所</label>
+    <div class="col-sm-10">
+     <input type="text" class="form-control" name="addr21" size="40"  required>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">パスワード</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" >
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">パスワード(確認)</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword">
+    </div>
+  </div>
+
+<div class="button_wrapper">
+	<button type="button" class="btn btn-secondary btn-lg" onclick="location.href='memberList.html'">OK</button>
+</div>
+<div class="link">
+<a href="memberList.html">Back</a>
 </div>
 </form>
-
-<div class="link">
-<a href="userList.html">Back</a>
+</div>
 </div>
 
 </body>
