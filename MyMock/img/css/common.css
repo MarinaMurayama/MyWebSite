@@ -1,0 +1,27 @@
+/* 背景画像 */
+.jumbotron { background:url(picture/img3.PNG) center no-repeat; background-size: cover;}
+
+
+
+/* 見出しのスタイル */
+.title{
+	text-align: left ;
+
+}
+/* その他 */
+
+.membertable{
+	width: 700px;
+}
+
+.UserDetail{
+    text-align: left;
+}
+
+.updateform{
+	width: 670px;
+}
+
+.deleteform{
+	width: 500px;
+}
