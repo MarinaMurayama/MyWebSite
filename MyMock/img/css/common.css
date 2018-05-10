@@ -1,19 +1,38 @@
 /* 背景画像 */
 .jumbotron { background:url(picture/img3.PNG) center no-repeat; background-size: cover;}
 
+.jumbotron2{ background:url(picture/img6.PNG) center no-repeat; background-size: cover;}
 
 
 /* 見出しのスタイル */
 .title{
 	text-align: left ;
-
 }
-/* その他 */
 
+.syoppingtitle{
+	text-align: center ;
+}
+
+/* テーブル */
 .membertable{
 	width: 700px;
 }
+.carttable{
+	width: 700px;
+	margin: 0 auto;
+}
 
+.mastertable{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.masterStable{
+	width: 800px;
+	margin: 0 auto;
+}
+
+/* その他 */
 .UserDetail{
     text-align: left;
 }
@@ -24,4 +43,36 @@
 
 .deleteform{
 	width: 500px;
+}
+
+.card{
+	 padding:15px;
+}
+
+.card-img-top{
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: 180px;
+}
+
+.master-top{
+  border-radius: 5px 5px 0 0;
+  max-width:150px;
+  max-height:150px;
+}
+
+.shoppingcart{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.itemdetail {
+  max-width: 900px;
+  background-color: #eee8aa;
+  margin: 0 auto;
+}
+
+.input-group{
+	width: 670px;
+	margin: 0 auto;
 }
