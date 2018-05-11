@@ -8,9 +8,12 @@
 <title>buy&#x1F6D2;</title>
 </head>
 <body>
-
+<br>
+<br>
+<br>
 <h1 class="syoppingtitle" >購入確認 &#x1F6D2;</h1>
-
+<br>
+<br>
 <div class="row">
 			<div class="section"></div>
 			<div class="col s12">
@@ -18,33 +21,33 @@
 					<div class="card-content">
 						<div class="row">
 						<div class="carttable">
-							<table class="table table-hover">
+							<table class="table">
 								<thead>
-									<tr class="p-3 mb-2 bg-dark text-white">
-										<th class="center">商品名</th>
-										<th class="center">単価</th>
-										<th class="center">小計</th>
+									<tr>
+										<th scope="col">商品名</th>
+										<th scope="col">単価</th>
+										<th scope="col">小計</th>
 									</tr>
 								</thead>
 								<tbody>
 
-									<tr class="p-3 mb-2 bg-light text-dark">
-										<td class="center"><!--=cartInItem.getName()-->コーヒーミル</td>
-										<td class="center"><!--=cartInItem.getPrice()-->1500円</td>
-										<td class="center"><!--=cartInItem.getPrice-->1500円</td>
+									<tr>
+										<td><!--=cartInItem.getName()-->コーヒーミル</td>
+										<td><!--=cartInItem.getPrice()-->1500円</td>
+										<td><!--=cartInItem.getPrice-->1500円</td>
 									</tr>
 
-									<tr class="p-3 mb-2 bg-light text-dark">
+									<tr>
 
-										<td class="center"><!--%=bdb.getDeliveryMethodName()-->通常配送</td>
-										<td class="center"></td>
-										<td class="center"><!--%=bdb.getDeliveryMethodPrice()%-->0円</td>
+										<td><!--%=bdb.getDeliveryMethodName()-->通常配送</td>
+										<td></td>
+										<td><!--%=bdb.getDeliveryMethodPrice()%-->0円</td>
 									</tr>
 									<tr class=
 									"p-3 mb-2 bg-light text-dark">
-										<td class="center"></td>
-										<td class="center">合計</td>
-										<td class="center"><!--%=bdb.getTotalPrice()+bdb.getDeliveryMethodPrice()%-->1500円</td>
+										<td></td>
+										<td>合計</td>
+										<td><!--%=bdb.getTotalPrice()+bdb.getDeliveryMethodPrice()%-->1500円</td>
 									</tr>
 								</tbody>
 							</table>
@@ -53,7 +56,7 @@
 							<div class="row">
 							<div class="col s12">
 								<form action="BuyResult" method="post">
-									<a class="btn btn-secondary btn-lg btn-block"  href="buyresult.html">購入　＞</a>
+									<a class="btn btn-secondary btn-lg btn-block"  href="buyresult.html">購入　＞＞</a>
 								</form>
 							</div>
 							</div>

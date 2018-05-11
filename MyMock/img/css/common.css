@@ -32,9 +32,23 @@
 	margin: 0 auto;
 }
 
+.maintable{
+	width: 900px;
+	margin: 0 auto;
+}
+
+.maintable2{
+	width: 1000px;
+	margin: 0 auto;
+}
+
 /* その他 */
 .UserDetail{
     text-align: left;
+}
+
+.right{
+    text-align: right;
 }
 
 .dateform{
