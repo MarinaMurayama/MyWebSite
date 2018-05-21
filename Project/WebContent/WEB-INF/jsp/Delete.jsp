@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,15 +21,18 @@
 <br>
 <h1 class="title">Delete</h1>
 <br>
-<p class="text">ログインID:</p>
+<p class="text">ログインID:${Userdata.loginId}</p>
 <p class="text">本当に削除してよろしいですか？</p>
 <br>
-<form class="login-form">
+<form class="login-form" action="Delete" method="post">
 	<div class="button_wrapper">
-	<button type="button" class="btn btn-secondary" onclick="location.href='memberList.html'">Cancel</button>
-	<button type="button" class="btn btn-secondary" onclick="location.href='memberList.html'">OK</button>
+	<button type="submit" class="btn btn-secondary" onclick="location.href='memberList.html'">OK</button>
+	<input type="hidden" value="${Userdata.id}" class="form-control"  name="id">
 	</div>
 </form>
+<div class="button_wrapper">
+	<a type="button" class="btn btn-secondary"  href="MemberList">cancel</a>
+	</div>
 </div>
 </div>
 
