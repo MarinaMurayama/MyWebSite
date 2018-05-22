@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +14,14 @@
 <div class="card">
 <form action="ItemAdd" method="POST">
   <div class="card-body">
-    <h5 class="card-title">コーヒーミル</h5>
-    <p class="card-text">■This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-     <p class="card-text">■This is a wider cardal lead-in to additional content. T is a little bit longer.</p>
-    <p class="card-text">Price  1800円</p>
+    <h5 class="card-title">${itemDetail.name}</h5>
+    <p class="card-text">${itemDetail.detail}</p>
+    <p class="card-text">Price: ${itemDetail.price}円</p>
     <a class="btn btn-secondary btn-lg" href="InCart.html">
 	&#x1F6D2;Add ShoppingCart
 	</a>
   </div>
-  <img class="card-img-bottom" src="picture/goods3.PNG" alt="Card image cap">
+  <img class="card-img-bottom" src="${itemDetail.item_img}" alt="Card image cap">
   </form>
 </div>
 </div>

@@ -21,7 +21,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="onlineshop_top.html">ONLINE SHOP</a>
+      <a class="nav-item nav-link" href="Onlineshop_top">ONLINE SHOP</a>
       <a class="nav-item nav-link" href="login">LOGIN</a>
       <a class="nav-item nav-link" href="Logout">LOGOUT</a>
         <a class="nav-item nav-link" href="purchaseHistoryList.html">USER BUY DATA</a>

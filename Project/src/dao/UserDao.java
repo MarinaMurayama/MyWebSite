@@ -337,7 +337,7 @@ public class UserDao {
 	        return userList;
 	    }
 
-
+/*
 	public List<User> findConditional(String loginid,String username,String birthDate1,String birthDate2) {  //★★条件検索（ユーザ一覧画面）
 
 		Connection conn = null;
@@ -418,6 +418,6 @@ public class UserDao {
 	         }
 	     }
 	     return userList;
-	 }
+	 }  */
 
 	}

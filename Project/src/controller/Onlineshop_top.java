@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.UserDataBeans;
-import dao.UserDao;
+import beans.ItemDataBeans;
+import dao.ItemDao;
 
 /**
- * Servlet implementation class UserDetail
+ * Servlet implementation class Onlineshop_top
  */
-@WebServlet("/UserDetail")
-public class UserDetail extends HttpServlet {
+@WebServlet("/Onlineshop_top")
+public class Onlineshop_top extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserDetail() {
+    public Onlineshop_top() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,30 +32,28 @@ public class UserDetail extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//ログインセッションがない場合、ログイン画面にリダイレクトさせる
+		/* HttpSession session = request.getSession();
+		UserDataBeans u = (UserDataBeans)session.getAttribute("userInfo");
 
-				// 選択されたユーザIDを受け取る
-				String id = request.getParameter("id");
-				// 確認用：idをコンソールに出力
-				System.out.println(id);
+		 if( u == null){
+		  response.sendRedirect("login");
+		  return;
+		} */
+	// 商品一覧情報を取得
+	ItemDao itemDao = new ItemDao();
+	List<ItemDataBeans>itemList = itemDao.findAll();
 
-				//idを引数にして、idに紐づくユーザ情報を出力する daoにﾒｿｯﾄﾞを作ってここで取得する。
-				UserDao userDao = new UserDao();
-				UserDataBeans Userdata = userDao.findByUserDetail(id);
-
-				request.setAttribute("Userdata", Userdata);
-
-				 // リクエストスコープからインスタンスを取得
-				 UserDataBeans u = (UserDataBeans)request.getAttribute("Userdata");
-
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UserDetail.jsp");
-				dispatcher.forward(request, response);
+	request.setAttribute("itemList", itemList);
+	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/onlineshop_top.jsp");
+	dispatcher.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Auto-generated method stub
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

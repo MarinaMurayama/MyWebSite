@@ -1,8 +1,9 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class UserDataBeans {
+public class UserDataBeans implements Serializable{
 
 	private int id;
 	private String loginId;
