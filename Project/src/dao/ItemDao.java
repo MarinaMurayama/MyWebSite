@@ -15,7 +15,7 @@ public class ItemDao {
 
 
 	/**
-     * 全ての商品情報を取得する
+     * ★全ての商品情報を取得する
      * @return
      */
     public List<ItemDataBeans> findAll() {
@@ -66,7 +66,117 @@ public class ItemDao {
         return itemList;
     }
 
+    /**
+     * ★新規登録時のユーザID重複確認
+     * @return 重複時はtrue
+     */
+    public boolean matchingNum(String itemnum){
 
+    	Connection conn = null;
+        try {
+            // データベースへ接続
+            conn = DBManager.getConnection();
+            // SELECT文を準備
+            String sql = "SELECT item_num FROM m_item WHERE item_num =?";
+
+             // SELECTを実行し、結果表を取得
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1,itemnum);
+            ResultSet rs = pStmt.executeQuery();
+
+            if (!rs.next()) {
+                return false;
+            }
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+    /**
+     * ★新規登録(コーヒー豆以外の場合)
+     */
+    public void create(String item_num,String item_img,String item_name,String item_detail,String category_id,int stocks,int price) {
+    	Connection conn = null;
+        try {
+          	// データベースへ接続
+            conn = DBManager.getConnection();
+            // INSERT文を準備
+            String sql = "INSERT INTO m_item(item_num,item_img,item_name,item_detail,category_id,stocks,price,create_Date,update_Date)"
+            		    + "values (?,?,?,?,?,?,?,now(),now())";
+
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, item_num);
+            pStmt.setString(2, item_img);
+            pStmt.setString(3, item_name);
+            pStmt.setString(4, item_detail);
+            pStmt.setString(5, category_id);
+            pStmt.setInt(6, stocks);
+            pStmt.setInt(7, price);
+
+            int result = pStmt.executeUpdate();
+            // 追加された行数を出力
+            System.out.println(result);
+            pStmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * ★新規登録(コーヒー豆の場合)
+     */
+    public void create(String item_num,String taste_num,String item_img,String item_name,String item_detail,String category_id,int stocks,int price) {
+    	Connection conn = null;
+        try {
+          	// データベースへ接続
+            conn = DBManager.getConnection();
+            // INSERT文を準備
+            String sql = "INSERT INTO m_item(item_num,taste_num,item_img,item_name,item_detail,category_id,stocks,price,create_Date,update_Date)"
+            		    + "values (?,?,?,?,?,?,?,?,now(),now())";
+
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, item_num);
+            pStmt.setString(2, taste_num);
+            pStmt.setString(3, item_img);
+            pStmt.setString(4, item_name);
+            pStmt.setString(5, item_detail);
+            pStmt.setString(6, category_id);
+            pStmt.setInt(7, stocks);
+            pStmt.setInt(8, price);
+
+            int result = pStmt.executeUpdate();
+            // 追加された行数を出力
+            System.out.println(result);
+            pStmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
 	/**
 	 * 商品IDによる商品検索
