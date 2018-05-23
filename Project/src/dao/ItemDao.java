@@ -179,7 +179,7 @@ public class ItemDao {
     }
 
 	/**
-	 * 商品IDによる商品検索
+	 * ★商品IDによる商品検索
 	 * @param itemId
 	 * @return ItemDataBeans
 	 * @throws SQLException
@@ -223,6 +223,179 @@ public class ItemDao {
 			}
 		}
 	}
+
+	/**
+	 * ★データ更新(全てのデータを更新したい)
+	 */
+	 public void updateAll(String item_num,String taste_num,String item_img,String item_name,String item_detail,String category_id,int stocks,int price,int id) {
+	    	Connection conn = null;
+	        try {
+	          	// データベースへ接続
+	            conn = DBManager.getConnection();
+
+	            String sql ="UPDATE m_item SET item_num=?,taste_num=?,item_img=?,item_name=?,item_detail=?,category_id=?,stocks=?,price=?,update_date=now()"
+	            			+ " WHERE item_id =?";
+
+	            PreparedStatement pStmt = conn.prepareStatement(sql);
+	            pStmt.setString(1, item_num);
+	            pStmt.setString(2, taste_num);
+	            pStmt.setString(3, item_img);
+	            pStmt.setString(4, item_name);
+	            pStmt.setString(5, item_detail);
+	            pStmt.setString(6, category_id);
+	            pStmt.setInt(7, stocks);
+	            pStmt.setInt(8, price);
+	            pStmt.setInt(9, id);
+
+	            int result = pStmt.executeUpdate();
+	            System.out.println(result);
+	            System.out.println("データ更新(全てのデータ)");
+
+	            pStmt.close();
+
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+
+	        } finally {
+	            // データベース切断
+	            if (conn != null) {
+	                try {
+	                    conn.close();
+	                } catch (SQLException e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        }
+	    }
+
+	 	/**
+		 *★データ更新(画像と型番は更新なし)
+		 */
+	    public void update(String taste_num,String item_name,String item_detail,String category_id,int stocks,int price,int id) {
+	    	Connection conn = null;
+	        try {
+	          	// データベースへ接続
+	            conn = DBManager.getConnection();
+
+	            String sql ="UPDATE m_item SET taste_num=?,item_name=?,item_detail=?,category_id=?,stocks=?,price=?,update_date=now()"
+            			+ " WHERE item_id =?";
+
+	            PreparedStatement pStmt = conn.prepareStatement(sql);
+	            pStmt.setString(1, taste_num);
+	            pStmt.setString(2, item_name);
+	            pStmt.setString(3, item_detail);
+	            pStmt.setString(4, category_id);
+	            pStmt.setInt(5, stocks);
+	            pStmt.setInt(6, price);
+	            pStmt.setInt(7, id);
+
+	            int result = pStmt.executeUpdate();
+	            System.out.println(result);
+	            System.out.println("データ更新更新(画像と型番は更新なし)");
+
+	            pStmt.close();
+
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+
+	        } finally {
+	            // データベース切断
+	            if (conn != null) {
+	                try {
+	                    conn.close();
+	                } catch (SQLException e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        }
+	    }
+
+	    /**
+		 *★データ更新(画像は更新なし)
+		 */
+	    public void updateNimg(String item_num,String taste_num,String item_name,String item_detail,String category_id,int stocks,int price,int id) {
+	    	Connection conn = null;
+	        try {
+	          	// データベースへ接続
+	            conn = DBManager.getConnection();
+
+	            String sql ="UPDATE m_item SET item_num=?,taste_num=?,item_name=?,item_detail=?,category_id=?,stocks=?,price=?,update_date=now()"
+            			+ " WHERE item_id =?";
+
+	            PreparedStatement pStmt = conn.prepareStatement(sql);
+	            pStmt.setString(1, item_num);
+	            pStmt.setString(2, taste_num);
+	            pStmt.setString(3, item_name);
+	            pStmt.setString(4, item_detail);
+	            pStmt.setString(5, category_id);
+	            pStmt.setInt(6, stocks);
+	            pStmt.setInt(7, price);
+	            pStmt.setInt(8, id);
+
+	            int result = pStmt.executeUpdate();
+	            System.out.println(result);
+	            System.out.println("データ更新(画像は更新なし)");
+
+	            pStmt.close();
+
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+
+	        } finally {
+	            // データベース切断
+	            if (conn != null) {
+	                try {
+	                    conn.close();
+	                } catch (SQLException e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        }
+	    }
+
+	    /**
+		 *★データ更新(型番は更新なし)
+		 */
+	    public void updateNnum(String img,String taste_num,String item_name,String item_detail,String category_id,int stocks,int price,int id) {
+	    	Connection conn = null;
+	        try {
+	          	// データベースへ接続
+	            conn = DBManager.getConnection();
+
+	            String sql ="UPDATE m_item SET item_img=?,taste_num=?,item_name=?,item_detail=?,category_id=?,stocks=?,price=?,update_date=now()"
+            			+ " WHERE item_id =?";
+
+	            PreparedStatement pStmt = conn.prepareStatement(sql);
+	            pStmt.setString(1, img);
+	            pStmt.setString(2, taste_num);
+	            pStmt.setString(3, item_name);
+	            pStmt.setString(4, item_detail);
+	            pStmt.setString(5, category_id);
+	            pStmt.setInt(6, stocks);
+	            pStmt.setInt(7, price);
+	            pStmt.setInt(8, id);
+
+	            int result = pStmt.executeUpdate();
+	            System.out.println(result);
+	            System.out.println("データ更新(型番は更新なし)");
+
+	            pStmt.close();
+
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+
+	        } finally {
+	            // データベース切断
+	            if (conn != null) {
+	                try {
+	                    conn.close();
+	                } catch (SQLException e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        }
+	    }
+
 
 	/**
 	 * 商品検索

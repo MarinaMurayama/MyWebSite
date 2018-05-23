@@ -36,7 +36,7 @@ public class MasterSignup extends HttpServlet {
 
 
 	/**
-	 * 入力した値を受け取ってﾃﾞｰﾀﾍﾞｰｽに登録
+	 * 入力した値を受け取り入力確認。OKの場合は商品情報を新規登録
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 入力した情報を全て取得する
@@ -50,7 +50,7 @@ public class MasterSignup extends HttpServlet {
         int stocks = (int)(Integer.parseInt(request.getParameter("stocks")));
         int price = (int)(Integer.parseInt(request.getParameter("price")));
 
-        //金額と在庫数が0より小さい場合はエラー表示してjspへフォワード
+        //確認1. 金額と在庫数が0より小さい場合はエラー表示してjspへフォワード
         if (stocks <= 0 || price <= 0) {
             request.setAttribute("errMsg1", "入力された内容は正しくありません。");
     		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master_signup.jsp");
@@ -58,7 +58,7 @@ public class MasterSignup extends HttpServlet {
       		return;
 		}
 
-      //型番の重複確認
+      //確認2. 型番の重複確認
         ItemDao item = new ItemDao();
   		boolean i = item.matchingNum(itemnum);
   		if (i) {
@@ -68,7 +68,7 @@ public class MasterSignup extends HttpServlet {
 			return;
 		}
 
-  		//登録前の最終確認
+  		//最終確認
         if (tastenum != null && category.equals("2")) { //商品カテゴリが２のコーヒー豆以外なら豆のジャンル入力は必要ない
         		request.setAttribute("errMsg1", "入力された内容は正しくありません。");
         		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master_signup.jsp");
