@@ -56,8 +56,8 @@
       <td>
       	<div class="btn-group" role="group" aria-label="Basic example">
   			<a type="button" class="btn btn-outline-secondary" href="MasterEdit?id=${item.id}">編集</a>
-  			<a type="button" class="btn btn-outline-secondary" href="UserDetail?id=${item.id}">プレビュー</a>
-  			<a type="button" class="btn btn-outline-secondary" href="UserDetail?id=${item.id}">削除</a>
+  			<a type="button" class="btn btn-outline-secondary" href="#?id=${item.id}">プレビュー</a>
+  			<a type="button" class="btn btn-outline-secondary" href="#?id=${item.id}">削除</a>
 		</div>
       </td>
     </tr>

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +49,7 @@
       </div>
     </div>
     <div class="form-group row">
-    <label for="inputPassword" class="col-sm-2 col-form-label">コーヒー豆の場合はジャンルを選択して下さい</label>
+    <label for="inputPassword" class="col-sm-2 col-form-label">コーヒー豆のジャンル</label>
     <div class="btn-group" data-toggle="buttons" >
 		<label class="btn btn-default active">
 		<input type="radio"  name="taste" value="A" autocomplete="off" />濃いめ</label>
