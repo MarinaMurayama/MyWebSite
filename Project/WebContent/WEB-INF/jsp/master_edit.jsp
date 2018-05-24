@@ -24,9 +24,9 @@ ${errMsg3}
 <input type="hidden" value="${Itemdata.id}" name="id">
 </div>
   <div class="form-group row">
-    <label for="inputLoginID" class="col-sm-2 col-form-label" >商品画像</label>
+    <label for="inputLoginID" class="col-sm-2 col-form-label" >商品画像　　※内容に変更がある場合のみ入力して下さい</label>
     <div class="col-sm-10">
-      <input type="file" class="form-control" name="pic" placeholder="内容に変更がある場合のみ入力して下さい">
+      <input type="file" class="form-control" name="pic">
     </div>
   </div>
   <div class="form-group row">
