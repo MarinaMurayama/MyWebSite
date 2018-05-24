@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import beans.ItemDataBeans;
 import dao.ItemDao;
@@ -33,7 +32,7 @@ public class Item extends HttpServlet {
 	 * 商品idを元に商品詳細情報を取得してjspに表示する
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+
 		request.setCharacterEncoding("UTF-8");
 
 		try {
@@ -41,8 +40,8 @@ public class Item extends HttpServlet {
 			System.out.println(id); //確認用
 
 			//idを引数にして、idに紐づく商品情報を取得
-			ItemDao itemDao = new ItemDao();
-			ItemDataBeans itemDetail = itemDao.getItemByItemID(id);
+
+			ItemDataBeans itemDetail = ItemDao.getItemByItemID(id);
 			request.setAttribute("itemDetail", itemDetail);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/item.jsp");
@@ -58,8 +57,36 @@ public class Item extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		/*
+		HttpSession session = request.getSession();
+		try {
+			int id = Integer.parseInt(request.getParameter("id"));
+			//追加した商品を表示するためリクエストパラメーターにセット
+			ItemDataBeans item = ItemDao.getItemByItemID(id);
+			request.setAttribute("item", item);
+
+			//カートを取得
+			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) session.getAttribute("cart");
+
+			//セッションにカートがない場合カートを作成
+			if (cart == null) {
+				cart = new ArrayList<ItemDataBeans>();
+			}
+			//カートに商品を追加。
+			cart.add(item);
+			//カート情報更新
+			session.setAttribute("cart", cart);
+			request.setAttribute("cartActionMessage", "商品を追加しました");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("InCart");
+			dispatcher.forward(request, response);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.setAttribute("errorMessage", e.toString());
+			response.sendRedirect("Error");
+		}  */
+
 	}
 
 }

@@ -4,17 +4,21 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
+import base.Common;
 import dao.ItemDao;
 
 /**
  * Servlet implementation class MasterSignup
  */
 @WebServlet("/MasterSignup")
+@MultipartConfig(location="C:\\Users\\marin\\OneDrive\\ドキュメント\\git\\MyWebSite\\Project\\WebContent\\picture", maxFileSize=10485760)
 public class MasterSignup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -41,7 +45,12 @@ public class MasterSignup extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 入力した情報を全て取得する
         request.setCharacterEncoding("UTF-8");
-		String img = request.getParameter("pic");
+
+        Part part = request.getPart("pic");
+        String fName = Common.getFileName(part);
+        part.write(fName); //ファイルを上記の場所においておきます
+        fName = Common.IMAGE_PATH + fName;
+
         String name = request.getParameter("name");
         String detail = request.getParameter("detail");
         String category = request.getParameter("category");
@@ -69,7 +78,7 @@ public class MasterSignup extends HttpServlet {
 		}
 
   		//最終確認
-        if (tastenum != null && category.equals("2")) { //商品カテゴリが２のコーヒー豆以外なら豆のジャンル入力は必要ない
+        if (tastenum != null && category.equals("2")) { //商品カテゴリがコーヒー豆以外の場合は豆のジャンル入力は必要ない
         		request.setAttribute("errMsg1", "入力された内容は正しくありません。");
         		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master_signup.jsp");
         		dispatcher.forward(request, response);
@@ -77,7 +86,7 @@ public class MasterSignup extends HttpServlet {
 
 			}else if(category.equals("2")){  //確認を抜けたカテゴリ２の商品は登録
 				ItemDao itemDao = new ItemDao();
-		  		itemDao.create(itemnum,img,name,detail,category,stocks,price);
+		  		itemDao.create(itemnum,fName,name,detail,category,stocks,price);
 		  		response.sendRedirect("Master");
 
 			}else if(tastenum == null && category.equals("1")){ //コーヒー豆なのに豆のジャンル登録がされていない場合
@@ -86,11 +95,22 @@ public class MasterSignup extends HttpServlet {
 	    		dispatcher.forward(request, response);
 		   }else {
 			   ItemDao itemDao = new ItemDao();
-			   itemDao.create(itemnum,tastenum,img,name,detail,category,stocks,price);
+			   itemDao.create(itemnum,tastenum,fName,name,detail,category,stocks,price);
+
+
+			   //画像を配置する時間分まつ
+			   try{
+				   Thread.sleep(1000); //3000ミリ秒Sleepする
+			   }catch(InterruptedException e){
+
+			   }
+
 
 			   response.sendRedirect("Master");
 		   }
 	}
+
+
 }
 
 

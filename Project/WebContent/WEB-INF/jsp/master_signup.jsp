@@ -20,7 +20,7 @@
 <br>
 
 <div class="masterStable">
-<form class="p-3 mb-2 bg-white text-dark" action="MasterSignup" method="post">
+<form class="p-3 mb-2 bg-white text-dark" action="MasterSignup" enctype="multipart/form-data" method="post">
   <div class="form-group row">
     <label for="inputLoginID" class="col-sm-2 col-form-label">商品画像</label>
     <div class="col-sm-10">

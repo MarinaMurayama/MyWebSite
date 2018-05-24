@@ -21,17 +21,20 @@
 <br>
 <br>
 <!-- 商品名の部分一致で検索できるようにする　フォームでpostに送信出来るように手を加える-->
-<div class="input-group">
-  <input type="text" class="form-control">
-  <span class="input-group-btn">
+ <form class="login-form" action="Onlineshop_top" method="post">
+	<div class="input-group">
+  	<input type="text" class="form-control"  name="word">
+  	<span class="input-group-btn">
     <button class="btn btn-default" type="submit">SEARCH</button>
-  </span>
-</div>
+  	</span>
+	</div>
+</form>
 <br>
 </div>
 <!-- 商品カテゴリＩＤでジャンルごとに表示できます フォームでpostに送信出来るように手を加える-->
 <br>
 <div class="syoppingtitle">
+ <form class="login-form" action="Onlineshop_category" method="post">
 <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active btn-lg">
     <input type="radio" name="options" id="option1" autocomplete="off" checked> BEANS
@@ -43,6 +46,7 @@
     <input type="radio" name="options" id="option3" autocomplete="off"> ALL ITEMS
   </label>
 </div>
+</form>
 </div>
 <br>
 <!-- 商品一覧 -->

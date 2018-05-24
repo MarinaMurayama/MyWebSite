@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -50,11 +51,26 @@ public class Onlineshop_top extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * 検索処理
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		try {
+
+			String Word = request.getParameter("word");
+
+			ItemDao itemDao = new ItemDao();
+			List<ItemDataBeans>itemList = itemDao.getItemsByItemName(Word);
+
+			request.setAttribute("itemList",itemList);
+
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/onlineshop_top.jsp");
+			dispatcher.forward(request, response);
+
+		} catch (SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 	}
 
 }

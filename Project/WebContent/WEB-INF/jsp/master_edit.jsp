@@ -78,14 +78,14 @@ ${errMsg3}
 			<input type="radio"  name="taste" value="B" checked/>標準</label>
 			<label class="btn btn-default active">
 			<input type="radio"  name="taste" value="C" />香りが良い</label></c:when>
-			<c:when test="${Itemdata.taste_num == 'C'}">
+		<c:when test="${Itemdata.taste_num == 'C'}">
 			<label class="btn btn-default active">
 			<input type="radio"  name="taste" value="A" />濃いめ</label>
 			<label class="btn btn-default">
 			<input type="radio"  name="taste" value="B" />標準</label>
 			<label class="btn btn-default active">
 			<input type="radio"  name="taste" value="C" checked/>香りが良い</label></c:when>
-			<c:when test="${Itemdata.taste_num == null}">
+		<c:when test="${Itemdata.taste_num == null}">
 			<label class="btn btn-default active">
 			<input type="radio"  name="taste" value="A" />濃いめ</label>
 			<label class="btn btn-default">

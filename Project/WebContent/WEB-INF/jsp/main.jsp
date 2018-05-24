@@ -45,7 +45,7 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <a href="onlineshop_top.html"><img class="d-block w-100" src="picture/goods4.PNG"></a>
+      <a href="Onlineshop_top"><img class="d-block w-100" src="picture/goods4.PNG"></a>
       <div class="carousel-caption">
       	<br>
         <h1>＼お父さんいつもありがとう！／</h1>
@@ -145,7 +145,7 @@
 		</div>
 
 		<div class="card" style="width: 18rem;">
-			<a href="onlineshop_top.html">
+			<a href="Onlineshop_top">
   			<img class="card-img-top" src="picture/img10.PNG"></a>
  		 	<div class="card-body">
    		 	<h5 class="card-title">ONLINE SHOP</h5>

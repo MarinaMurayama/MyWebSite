@@ -21,6 +21,7 @@
 				</div>
 		</div>
 <br>
+<!-- 商品名の部分一致で検索できるようにする　フォームでpostに送信出来るように手を加える-->
 		 <div class="syoppingtitle">
 		 <form class="login-form" action="Master" method="post">
 				<div class="input-group">

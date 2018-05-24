@@ -8,9 +8,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.Part;
 import javax.xml.bind.DatatypeConverter;
 
 public class Common {
+
+	public static final String IMAGE_PATH = "picture/";
+
 	/**
 	 * 文字列型からdate型に変換
 	 * @param date
@@ -66,6 +70,24 @@ public class Common {
 		//標準出力
 		return result;
 	}
+
+    /**
+     * ファイルの名前を取得する
+     * @param part
+     * @return
+     */
+	public static String getFileName(Part part) {
+        String name = null;
+        for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
+            if (dispotion.trim().startsWith("filename")) {
+                name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
+                name = name.substring(name.lastIndexOf("\\") + 1);
+                break;
+            }
+        }
+        return name;
+    }
+
 
 }
 
