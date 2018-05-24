@@ -398,43 +398,48 @@ public class ItemDao {
 
 
 	/**
-	 * 商品検索
+	 * ★商品検索(Master)
 	 * @param searchWord
-	 * @param pageNum
-	 * @param pageMaxItemCount
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList<ItemDataBeans> getItemsByItemName(String searchWord, int pageNum, int pageMaxItemCount) throws SQLException {
+	public List<ItemDataBeans> getItemsByItemName(String word) throws SQLException {
+
 		Connection con = null;
 		PreparedStatement st = null;
+		List<ItemDataBeans> itemList = new ArrayList<ItemDataBeans>();
+
 		try {
-			int startiItemNum = (pageNum - 1) * pageMaxItemCount;
 			con = DBManager.getConnection();
 
-			if (searchWord.length() == 0) {
+			if (word.length() == 0) {
 				// 全検索
-				st = con.prepareStatement("SELECT * FROM m_item ORDER BY id ASC LIMIT ?,? ");  //商品のid番号昇順でｿｰﾄ。LIMIT、行数指定。
-				st.setInt(1, startiItemNum);
-				st.setInt(2, pageMaxItemCount);
+				st = con.prepareStatement("SELECT * FROM m_item ORDER BY item_id ASC ");  //商品のid番号昇順でｿｰﾄ
+				System.out.println("SearchAllItem");
+
 			} else {
 				// 商品名検索
-				st = con.prepareStatement("SELECT * FROM m_item WHERE name LIKE ? ORDER BY id ASC LIMIT ?,? ");
-				st.setString(1, "%" +searchWord+ "%");  //setStringになっているから '' で囲むのは不要
-				st.setInt(2, startiItemNum);
-				st.setInt(3, pageMaxItemCount);
+				st = con.prepareStatement("SELECT * FROM m_item WHERE item_name LIKE ? ORDER BY item_id ASC");
+				st.setString(1, "%" +word+ "%");
+				System.out.println("WordSearchItem");
 			}
 
 			ResultSet rs = st.executeQuery();
-			ArrayList<ItemDataBeans> itemList = new ArrayList<ItemDataBeans>();
 
 			while (rs.next()) {
 				ItemDataBeans item = new ItemDataBeans();
-				item.setId(rs.getInt("id"));
-				item.setName(rs.getString("name"));
-				item.setDetail(rs.getString("detail"));
+				item.setId(rs.getInt("item_id"));
+				item.setItem_num(rs.getString("item_num"));
+				item.setTaste_num(rs.getString("taste_num"));
+				item.setItem_img(rs.getString("item_img"));
+				item.setName(rs.getString("item_name"));
+				item.setDetail(rs.getString("item_detail"));
+				item.setCategory_id(rs.getString("category_id"));
+				item.setStocks(rs.getInt("stocks"));
 				item.setPrice(rs.getInt("price"));
-				item.setFileName(rs.getString("file_name"));
+				item.setCreateDate(rs.getString("create_date"));
+				item.setUpdateDate(rs.getString("update_date"));
+
 				itemList.add(item);
 			}
 			System.out.println("get Items by itemName has been completed");
@@ -448,6 +453,41 @@ public class ItemDao {
 			}
 		}
 	}
+
+	 /**
+     * ★商品データ削除
+     */
+    public void deleteitem(String id){
+
+    	Connection conn = null;
+        try {
+            conn = DBManager.getConnection();
+            String sql = "DELETE FROM m_item WHERE item_id=?";
+
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, id);
+
+            int result = pStmt.executeUpdate();
+            System.out.println(result);
+            pStmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            // データベース切断
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+
 	/**
 	 * 商品総数を取得
 	 *

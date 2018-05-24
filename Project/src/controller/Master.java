@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -41,11 +42,10 @@ public class Master extends HttpServlet {
 		  return;
 		} */
 
-	// ユーザ一覧情報を取得
+	// 商品一覧情報を取得
 	ItemDao itemDao = new ItemDao();
 	List<ItemDataBeans> itemList = itemDao.findAll();
 
-	// リクエストスコープにユーザ一覧情報をセット
 	request.setAttribute("itemList", itemList);
 
 	// ユーザ一覧のjspにフォワード
@@ -54,11 +54,29 @@ public class Master extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * 検索処理
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO SEARCHのフォームからﾊﾟﾗﾒｰﾀで値を受け取ってDAOで検索。結果をJSPにﾌｫﾜｰﾄﾞ
-		doGet(request, response);
+
+			request.setCharacterEncoding("UTF-8");
+
+			try {
+				// 入力した情報を全て取得する
+				String Word = request.getParameter("word");
+
+				ItemDao itemDao = new ItemDao();
+				List<ItemDataBeans> itemList = itemDao.getItemsByItemName(Word);
+
+				request.setAttribute("itemList",itemList);
+
+		        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master.jsp");
+				dispatcher.forward(request, response);
+
+			} catch (SQLException e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				}
+
 	}
 
 }

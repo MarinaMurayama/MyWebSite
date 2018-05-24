@@ -22,14 +22,16 @@
 		</div>
 <br>
 		 <div class="syoppingtitle">
+		 <form class="login-form" action="Master" method="post">
 				<div class="input-group">
-  					<input type="text" class="form-control">
+  					<input type="text" class="form-control" name="word">
   					<span class="input-group-btn">
    				 	<button class="btn btn-default" type="submit">SEARCH</button>
   					</span>
 				</div>
-			</div>
+	 	</form>
 		</div>
+	</div>
 <br>
 <br>
 <!-- 商品リスト -->
@@ -57,7 +59,7 @@
       	<div class="btn-group" role="group" aria-label="Basic example">
   			<a type="button" class="btn btn-outline-secondary" href="MasterEdit?id=${item.id}">編集</a>
   			<a type="button" class="btn btn-outline-secondary" href="#?id=${item.id}">プレビュー</a>
-  			<a type="button" class="btn btn-outline-secondary" href="#?id=${item.id}">削除</a>
+  			<a type="button" class="btn btn-outline-secondary" href="MasterItemDelete?id=${item.id}">削除</a>
 		</div>
       </td>
     </tr>
