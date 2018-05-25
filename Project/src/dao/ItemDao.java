@@ -224,6 +224,9 @@ public class ItemDao {
 		}
 	}
 
+
+
+
 	/**
 	 * ★データ更新(全てのデータを更新したい)
 	 */
@@ -398,7 +401,7 @@ public class ItemDao {
 
 
 	/**
-	 * ★商品検索(Master)
+	 * ★商品検索(ワード検索: Master＆Onlineshop)
 	 * @param searchWord
 	 * @return
 	 * @throws SQLException
@@ -453,6 +456,64 @@ public class ItemDao {
 			}
 		}
 	}
+
+	/**
+	 * ★商品検索(商品カテゴリ別: Onlineshop)
+	 * @param searchWord
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<ItemDataBeans> getItemByCategoryID(String category) throws SQLException {
+
+		Connection con = null;
+		PreparedStatement st = null;
+		List<ItemDataBeans> itemList = new ArrayList<ItemDataBeans>();
+
+		try {
+			con = DBManager.getConnection();
+
+			if (category.equals("1") || category.equals("2")) {
+
+				st = con.prepareStatement("SELECT * FROM m_item WHERE category_id= ? ORDER BY item_id ASC");//商品のid番号昇順でｿｰﾄ
+				st.setString(1, category);
+				System.out.println("Search CoffeeOnly or OtherItem");
+
+			} else if(category.equals("3")){
+
+				st = con.prepareStatement("SELECT * FROM m_item ORDER BY item_id ASC");
+				System.out.println("AllItem");
+			}
+
+			ResultSet rs = st.executeQuery();
+
+			while (rs.next()) {
+				ItemDataBeans item = new ItemDataBeans();
+				item.setId(rs.getInt("item_id"));
+				item.setItem_num(rs.getString("item_num"));
+				item.setTaste_num(rs.getString("taste_num"));
+				item.setItem_img(rs.getString("item_img"));
+				item.setName(rs.getString("item_name"));
+				item.setDetail(rs.getString("item_detail"));
+				item.setCategory_id(rs.getString("category_id"));
+				item.setStocks(rs.getInt("stocks"));
+				item.setPrice(rs.getInt("price"));
+				item.setCreateDate(rs.getString("create_date"));
+				item.setUpdateDate(rs.getString("update_date"));
+
+				itemList.add(item);
+			}
+			System.out.println("get Items by Category_id has been completed");
+			return itemList;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (con != null) {
+				con.close();
+			}
+		}
+	}
+
 
 	 /**
      * ★商品データ削除

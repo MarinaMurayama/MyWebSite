@@ -31,25 +31,19 @@
 </form>
 <br>
 </div>
-<!-- 商品カテゴリＩＤでジャンルごとに表示できます フォームでpostに送信出来るように手を加える-->
 <br>
+<!-- 商品カテゴリＩＤでジャンルごとに表示できます フォームでpostに送信出来るように手を加える-->
 <div class="syoppingtitle">
  <form class="login-form" action="Onlineshop_category" method="post">
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active btn-lg">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> BEANS
-  </label>
-  <label class="btn btn-secondary btn-lg">
-    <input type="radio" name="options" id="option2" autocomplete="off"> GOODS
-  </label>
-  <label class="btn btn-secondary btn-lg">
-    <input type="radio" name="options" id="option3" autocomplete="off"> ALL ITEMS
-  </label>
-</div>
+	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+    	<button type="submit" name="id" id="option1" value="1" class="btn btn-secondary btn-lg"> BEANS</button>
+    	<button type="submit" name="id" id="option2" value="2" class="btn btn-secondary btn-lg"> GOODS</button>
+    	<button type="submit" name="id" id="option3" value="3" class="btn btn-secondary btn-lg"> ALL ITEMS</button>
+	</div>
 </form>
 </div>
-<br>
 <!-- 商品一覧 -->
+<br>
 <div class="maintable">
 <c:forEach var="pro" items="${itemList}" >
  <div class="col-xs-9 form-inline">
