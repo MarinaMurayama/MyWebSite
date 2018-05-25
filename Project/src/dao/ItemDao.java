@@ -13,7 +13,6 @@ import beans.ItemDataBeans;
 
 public class ItemDao {
 
-
 	/**
      * ★全ての商品情報を取得する
      * @return

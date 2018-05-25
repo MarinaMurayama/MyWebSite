@@ -6,10 +6,13 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.Part;
 import javax.xml.bind.DatatypeConverter;
+
+import beans.ItemDataBeans;
 
 public class Common {
 
@@ -87,6 +90,20 @@ public class Common {
         }
         return name;
     }
+
+	/**
+	 * 商品の合計金額を算出する
+	 *
+	 * @param items
+	 * @return total
+	 */
+	public static int getTotalPrice(ArrayList<ItemDataBeans> cart) {
+		int total = 0;
+		for (ItemDataBeans item : cart) {
+			total += item.getPrice();
+		}
+		return total;
+	}
 
 
 }

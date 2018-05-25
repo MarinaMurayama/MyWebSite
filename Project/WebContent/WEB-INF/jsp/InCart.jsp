@@ -1,66 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="common.css">
-<script src="js/jquery-3.3.1.min.js" charset="UTF-8"></script>
-<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
-<script src="js/popper.min.js" charset="UTF-8"></script>
-<script src="js/bootstrap.min.js" charset="UTF-8"></script>
 <title>Cart&#x1F6D2;</title>
 </head>
 <body>
 <br>
-<h1 class="syoppingtitle" >カート内の商品(3点) &#x1F6D2;</h1>
+${cartMessage}
+<br>
+<h1 class="syoppingtitle" >カート内の中身(3点) &#x1F6D2;</h1>
 <br>
 <br>
-<form action="ItemDelete##" method="##" class="shoppingcart">
-  <div class="col-xs-9 form-inline">
+<form action="ItemDelete" method="post" class="shoppingcart">
+	 <c:forEach var="item" items="${cart}" >
 		<div class="card" style="width: 18rem;">
-  			<img class="card-img-top" src="picture/goods.PNG">
+  			<img class="card-img-top" src="${item.item_img}">
  		 	<div class="card-body">
-   		 	<h5 class="card-title">ドリッパー</h5>
-   		 	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-   		 	<p>1500円</p>
-   		 	<input type="checkbox" id="<%=i%>" name="delete_item_id_list" value="<%=item.getId()%>" /><label >削除</label>
+   		 	<h5 class="card-title">${item.name}</h5>
+   		 	<p class="card-text">${item.detail}</p>
+   		 	<p>${item.price}円</p>
+   		 	<input type="checkbox"  name="delete_item_id_list" value="${item.id}" /><label >削除</label>
  		 	</div>
 		</div>
-
-		<div class="card" style="width: 18rem;">
-  			<img class="card-img-top" src="picture/goods2.PNG">
- 		 	<div class="card-body">
-   		 	<h5 class="card-title">コーヒーミル</h5>
-   		 	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-   		 	<p>2300円</p>
-   		 	<input type="checkbox" id="<%=i%>" name="delete_item_id_list" value="<%=item.getId()%>" /><label >削除</label>
- 		 	</div>
-		</div>
-
-		<div class="card" style="width: 18rem;">
-  			<img class="card-img-top" src="picture/goods3.PNG">
- 		 	<div class="card-body">
-   		 	<h5 class="card-title">コーヒーミル</h5>
-   		 	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-   		 	<p>1800円</p>
-   		 	<input type="checkbox" id="<%=i%>" name="delete_item_id_list" value="<%=item.getId()%>" /><label >削除</label>
- 		 	</div>
-		</div>
-  </div>
-
-  <div class="btn-group">
-  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   配送方法
-  </button>
-  <div class="dropdown-menu dropdown-menu-right">
-    <button class="dropdown-item" type="button">通常配送</button>
-    <button class="dropdown-item" type="button">日時指定配送</button>
-    <button class="dropdown-item" type="button">特別配送</button>
-  </div>
-</div>
-
-
-
+	</c:forEach>
   			<div class="syoppingtitle">
 				<div class="col-xs-9 form-inline">
 						<div class="col s6 center-align">
@@ -69,16 +35,22 @@
 							</button>
 						</div>
 						<div class="col s6 center-align">
-							<a  class="btn btn-secondary btn-lg" href="ToBuy.html">
-							<i class="material-icons right" >レジへ進む 　＞</i>
+							<a  class="btn btn-secondary btn-lg" href="BuyCheck">
+							<i class="material-icons right" >購入手続きへ 　＞</i>
 							</a>
 						</div>
 				</div>
 				</div>
 
 			</form>
-
-
+<br>
+<br>
+<div class="syoppingtitle">
+	<a href="main">TOPへ戻る</a>
+</div>
+<div class="syoppingtitle">
+	<a href="Onlineshop_top">ONLINE SHOPへ戻る</a>
+</div>
 
 
 </body>

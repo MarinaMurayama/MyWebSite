@@ -30,7 +30,7 @@ public class Onlineshop_top extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 商品一覧情報を取得
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//ログインセッションがない場合、ログイン画面にリダイレクトさせる
@@ -51,7 +51,7 @@ public class Onlineshop_top extends HttpServlet {
 	}
 
 	/**
-	 * 検索処理
+	 * search wordの商品検索処理
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");

@@ -41,7 +41,7 @@ public class MasterEdit extends HttpServlet {
 		ItemDataBeans Itemdata = ItemDao.getItemByItemID(id);
 
 		request.setCharacterEncoding("UTF-8");
-		request.setAttribute("Itemdata",Itemdata);  //ﾘｸｴｽﾄｽｺｰﾌﾟにｲﾝｽﾀﾝｽを保存(属性名、ｲﾝｽﾀﾝｽ)
+		request.setAttribute("Itemdata",Itemdata);
 		ItemDataBeans u = (ItemDataBeans)request.getAttribute("Itemdata");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master_edit.jsp");
@@ -58,7 +58,6 @@ public class MasterEdit extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 入力した情報を全て取得する
         request.setCharacterEncoding("UTF-8");
 		String img = request.getParameter("pic");
         String name = request.getParameter("name");
@@ -78,7 +77,7 @@ public class MasterEdit extends HttpServlet {
       		return;
 		}
 
-      //確認2. 型番変更の場合は重複確認をする
+      //確認2. 型番を変更する場合は重複していないか確認をする
         if(!(itemnum.equals(""))){
         	ItemDao item = new ItemDao();
         	boolean i = item.matchingNum(itemnum);
@@ -90,43 +89,41 @@ public class MasterEdit extends HttpServlet {
         	}
         }
 
-  	  //最終確認
-        if (tastenum != null && category.equals("2")) { //商品カテゴリが２のコーヒー豆以外なら豆のジャンル入力は必要ない
+  	  //確認3. 商品カテゴリとtastenumの関連
+        if (tastenum != null && category.equals("2")) { //商品カテゴリが２のコーヒー豆以外なら豆分類の入力は必要ない
         		request.setAttribute("errMsg1", "入力された内容は正しくありません。");
         		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master_signup.jsp");
         		dispatcher.forward(request, response);
         		return;
 
-			}else if(tastenum == null && category.equals("1")){ //コーヒー豆なのに豆のジャンル登録がされていない場合
+			}else if(tastenum == null && category.equals("1")){ //コーヒー豆なのに豆分類の登録がされていない場合
 				request.setAttribute("errMsg3", "コーヒー豆の場合はジャンル選択をして下さい。");
 	    		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master_signup.jsp");
 	    		dispatcher.forward(request, response);
 	    		return;
 		   }
 
-
-        if ( img .equals("") && itemnum.equals("")) { //データ更新(画像と型番は更新なし)
+       //データ更新
+        if ( img .equals("") && itemnum.equals("")) { 		 //画像と型番は更新なし
         	ItemDao itemDao = new ItemDao();
     		itemDao.update(tastenum,name,detail,category,stocks,price,Id);
     		response.sendRedirect("Master");
     		return;
-        }else if(img .equals("") && !(itemnum.equals(""))) { //データ更新(画像は更新なし)
+        }else if(img .equals("") && !(itemnum.equals(""))) { //画像は更新なし
         	ItemDao itemDao = new ItemDao();
     		itemDao.updateNimg(itemnum,tastenum,name,detail,category,stocks,price,Id);
     		response.sendRedirect("Master");
     		return;
-        }else if(!(img .equals("")) && itemnum.equals("")) { //データ更新(型番は更新なし)
+        }else if(!(img .equals("")) && itemnum.equals("")) { //型番は更新なし
         	ItemDao itemDao = new ItemDao();
         	itemDao.updateNnum(img,tastenum,name,detail,category,stocks,price,Id);
     		response.sendRedirect("Master");
     		return;
         }
 
-      //データ更新(全てのﾃﾞｰﾀを更新したい)
-        	ItemDao itemDao = new ItemDao();
+        	ItemDao itemDao = new ItemDao();				 //全てのﾃﾞｰﾀを更新したい
     		itemDao.updateAll(itemnum,tastenum,img,name,detail,category,stocks,price,Id);
     		response.sendRedirect("Master");
-
 	}
 
 }

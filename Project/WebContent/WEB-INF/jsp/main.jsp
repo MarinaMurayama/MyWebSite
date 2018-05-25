@@ -28,7 +28,7 @@
        <a class="nav-item nav-link" href="Signup">SIGNUP</a>
         <a class="nav-item nav-link" href="MemberList">MEMBER</a>
                <a class="nav-item nav-link" href="Master">(master)</a>
-      <a class="nav-item nav-link disabled" href="InCart.html">&#x1F6D2;</a>
+      <a class="nav-item nav-link disabled" href="Cart">&#x1F6D2;</a>
     </div>
   </div>
 </nav>

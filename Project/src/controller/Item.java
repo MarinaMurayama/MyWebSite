@@ -57,35 +57,15 @@ public class Item extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		/*
-		HttpSession session = request.getSession();
-		try {
-			int id = Integer.parseInt(request.getParameter("id"));
-			//追加した商品を表示するためリクエストパラメーターにセット
-			ItemDataBeans item = ItemDao.getItemByItemID(id);
-			request.setAttribute("item", item);
-
-			//カートを取得
-			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) session.getAttribute("cart");
-
-			//セッションにカートがない場合カートを作成
-			if (cart == null) {
-				cart = new ArrayList<ItemDataBeans>();
-			}
-			//カートに商品を追加。
-			cart.add(item);
-			//カート情報更新
-			session.setAttribute("cart", cart);
-			request.setAttribute("cartActionMessage", "商品を追加しました");
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("InCart");
-			dispatcher.forward(request, response);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			session.setAttribute("errorMessage", e.toString());
-			response.sendRedirect("Error");
-		}  */
+		 *  Cart: カートの中身
+		 * ItemAdd: 商品追加
+		 * ItemDelete :商品削除
+		 * Buy : 商品購入
+		 * BuyConfilm :購入商品確認画面
+		 * BuyResult : 購入完了
+		 */
 
 	}
 

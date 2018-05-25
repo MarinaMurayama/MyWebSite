@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +16,51 @@
 <h1 class="syoppingtitle" >購入確認 &#x1F6D2;</h1>
 <br>
 <br>
+
+<div class="mastertable">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">商品画像</th>
+      <th scope="col">商品名</th>
+      <th scope="col">販売価格</th>
+      <th scope="col">小計</th>
+    </tr>
+  </thead>
+<tbody>
+	<c:forEach var="item" items="${cart}" >
+    <tr>
+      <td><img src="${item.item_img}" alt="サンプル" class="master-top"></td>
+      <td>${item.name}</td>
+      <td>${item.price}円</td>
+      <td></td>
+    </tr>
+	</c:forEach>
+	<tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>${bdb.totalprice}円</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>${bdb.deliveryMethodName}</td>
+      <td></td>
+      <td>${bdb.deliveryMethodPrice}円</td>
+    </tr>
+</tbody>
+</table>
+</div>
+<br>
+<br>
+<p>※内容に変更がなければ購入ボタンを押して下さい。</p>
+<div class="row">
+<div class="col s12">
+<form action="BuyResult" method="post">
+	<a class="btn btn-secondary btn-lg btn-block"  href="Buyresult">購入　＞＞</a>
+</form>
+
+
 <div class="row">
 			<div class="section"></div>
 			<div class="col s12">
@@ -43,8 +90,7 @@
 										<td></td>
 										<td><!--%=bdb.getDeliveryMethodPrice()%-->0円</td>
 									</tr>
-									<tr class=
-									"p-3 mb-2 bg-light text-dark">
+									<tr class="p-3 mb-2 bg-light text-dark">
 										<td></td>
 										<td>合計</td>
 										<td><!--%=bdb.getTotalPrice()+bdb.getDeliveryMethodPrice()%-->1500円</td>

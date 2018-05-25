@@ -12,7 +12,7 @@
 <body>
 <div class="itemdetail">
 <div class="card">
-<form action="Item" method="POST">
+<form action="ItemAdd" method="POST">
 <div class="form-group row">
 <input type="hidden" value="${itemDetail.id}" name="id">
 </div>
@@ -20,9 +20,9 @@
     	<h5 class="card-title">${itemDetail.name}</h5>
     	<p class="card-text">${itemDetail.detail}</p>
     	<p class="card-text">Price: ${itemDetail.price}円</p>
-    	<a class="btn btn-secondary btn-lg" href="InCart">
+    	<button class="btn btn-secondary btn-lg" type="submit">
 		&#x1F6D2;Add ShoppingCart
-		</a>
+		</button>
   	</div>
   <img class="card-img-bottom" src="${itemDetail.item_img}" alt="Card image cap">
 </form>
