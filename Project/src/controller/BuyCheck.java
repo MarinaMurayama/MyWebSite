@@ -71,8 +71,9 @@ public class BuyCheck extends HttpServlet {
 			UserDataBeans user = (UserDataBeans)session.getAttribute("userInfo");
 
 			//商品の合計金額
-			int totalPrice = Common.getTotalPrice(cart);  //買い物かごに入っているitemの金額をEchelperｸﾗｽのﾒｿｯﾄﾞで取得
+			int totalPrice = Common.getTotalPrice(cart);
 
+			//購入確定していないが確認画面で使用するのでidとbuyDate以外の情報をBuyDataBeansに値をセット
 			BuyDataBeans bdb = new BuyDataBeans();
 			bdb.setUserId(user.getId());
 			bdb.setTotalPrice(totalPrice);

@@ -40,13 +40,13 @@
       <td></td>
       <td></td>
       <td>合計料金</td>
-      <td>${bdb.TotalPrice}円</td>
+      <td>${bdb.totalPrice}円</td>
     </tr>
     <tr>
       <td></td>
-      <td>${bdb.DeliveryMethodName}</td>
+      <td>${bdb.deliveryMethodName}</td>
       <td></td>
-      <td>${bdb.DeliveryMethodPrice}円</td>
+      <td>${bdb.deliveryMethodPrice}円</td>
     </tr>
 </tbody>
 </table>
