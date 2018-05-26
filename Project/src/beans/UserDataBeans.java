@@ -14,13 +14,9 @@ public class UserDataBeans implements Serializable{
 	private String createDate;
 	private String updateDate;
 
-	/* コンストラクタ
+
 	public UserDataBeans() {
-		this.name = "";
-		this.address = "";
-		this.loginId = "";
-		this.password = "";
-	} */
+	}
 
 	//ログイン用
 	public UserDataBeans(int id,String loginId) {

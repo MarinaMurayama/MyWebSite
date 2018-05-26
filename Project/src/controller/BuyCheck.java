@@ -15,6 +15,7 @@ import base.Common;
 import beans.BuyDataBeans;
 import beans.DeliveryMethodDataBeans;
 import beans.ItemDataBeans;
+import beans.UserDataBeans;
 import dao.DeliveryMethodDAO;
 
 /**
@@ -65,28 +66,31 @@ public class BuyCheck extends HttpServlet {
 			int deliveryId = Integer.parseInt(request.getParameter("delivery_id"));
 			DeliveryMethodDataBeans userSelectDMB = DeliveryMethodDAO.getDeliveryMethodDataBeansByID(deliveryId);
 
-			//買い物かご
+			//買い物かご・ログインユーザデータ呼び出し
 			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) session.getAttribute("cart");
+			UserDataBeans user = (UserDataBeans)session.getAttribute("userInfo");
 
 			//商品の合計金額
 			int totalPrice = Common.getTotalPrice(cart);  //買い物かごに入っているitemの金額をEchelperｸﾗｽのﾒｿｯﾄﾞで取得
 
 			BuyDataBeans bdb = new BuyDataBeans();
-			bdb.setUserId((int) session.getAttribute("userInfo"));
+			bdb.setUserId(user.getId());
 			bdb.setTotalPrice(totalPrice);
 			bdb.setDeliveryId(userSelectDMB.getId());
-			bdb.setDeliveryMethodPrice(userSelectDMB.getPrice()); //★★
-			bdb.setDeliveryMethodName(userSelectDMB.getDelivery());  //★★
+			bdb.setDeliveryMethodPrice(userSelectDMB.getPrice());
+			bdb.setDeliveryMethodName(userSelectDMB.getDelivery());
 
 			//購入確定で利用する為セット
 			session.setAttribute("bdb", bdb);
+			session.setAttribute("cart", cart);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ToBuy.jsp");
 			dispatcher.forward(request, response);
 
 		} catch (Exception e) {
+			//TODO エラー処理
 			e.printStackTrace();
-			session.setAttribute("errorMessage", e.toString());
+			session.setAttribute("errorMessage", "エラー");
 			response.sendRedirect("Error");
 		}
 	}

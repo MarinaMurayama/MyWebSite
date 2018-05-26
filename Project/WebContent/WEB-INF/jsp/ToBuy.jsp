@@ -39,14 +39,14 @@
 	<tr>
       <td></td>
       <td></td>
-      <td></td>
-      <td>${bdb.totalprice}円</td>
+      <td>合計料金</td>
+      <td>${bdb.TotalPrice}円</td>
     </tr>
     <tr>
       <td></td>
-      <td>${bdb.deliveryMethodName}</td>
+      <td>${bdb.DeliveryMethodName}</td>
       <td></td>
-      <td>${bdb.deliveryMethodPrice}円</td>
+      <td>${bdb.DeliveryMethodPrice}円</td>
     </tr>
 </tbody>
 </table>
@@ -54,65 +54,14 @@
 <br>
 <br>
 <p>※内容に変更がなければ購入ボタンを押して下さい。</p>
-<div class="row">
-<div class="col s12">
+
+
 <form action="BuyResult" method="post">
 	<a class="btn btn-secondary btn-lg btn-block"  href="Buyresult">購入　＞＞</a>
 </form>
 
 
-<div class="row">
-			<div class="section"></div>
-			<div class="col s12">
-				<div class="card grey lighten-5">
-					<div class="card-content">
-						<div class="row">
-						<div class="carttable">
-							<table class="table">
-								<thead>
-									<tr>
-										<th scope="col">商品名</th>
-										<th scope="col">単価</th>
-										<th scope="col">小計</th>
-									</tr>
-								</thead>
-								<tbody>
 
-									<tr>
-										<td><!--=cartInItem.getName()-->コーヒーミル</td>
-										<td><!--=cartInItem.getPrice()-->1500円</td>
-										<td><!--=cartInItem.getPrice-->1500円</td>
-									</tr>
-
-									<tr>
-
-										<td><!--%=bdb.getDeliveryMethodName()-->通常配送</td>
-										<td></td>
-										<td><!--%=bdb.getDeliveryMethodPrice()%-->0円</td>
-									</tr>
-									<tr class="p-3 mb-2 bg-light text-dark">
-										<td></td>
-										<td>合計</td>
-										<td><!--%=bdb.getTotalPrice()+bdb.getDeliveryMethodPrice()%-->1500円</td>
-									</tr>
-								</tbody>
-							</table>
-								<br>
-								<p>※内容に変更がなければ購入ボタンを押して下さい。</p>
-							<div class="row">
-							<div class="col s12">
-								<form action="BuyResult" method="post">
-									<a class="btn btn-secondary btn-lg btn-block"  href="buyresult.html">購入　＞＞</a>
-								</form>
-							</div>
-							</div>
-						</div>
-					</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
 
 
 

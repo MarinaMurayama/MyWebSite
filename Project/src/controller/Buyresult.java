@@ -48,7 +48,7 @@ public class Buyresult extends HttpServlet {
 
 		try {
 
-			// セッションからカート情報を取得
+			// セッションからカート情報を取得・取得したらcatセッションを閉じる
 			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) EcHelper.cutSessionAttribute(session, "cart");
 
 			BuyDataBeans bdb = (BuyDataBeans) EcHelper.cutSessionAttribute(session, "bdb");

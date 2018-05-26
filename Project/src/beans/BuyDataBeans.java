@@ -1,17 +1,28 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class BuyDataBeans {
+public class BuyDataBeans implements Serializable {
 	private int id;
 	private int userId;
 	private int totalPrice;
 	private int deliveryId;
 	private Date buyDate;
-
-
 	private String deliveryMethodName;
 	private int deliveryMethodPrice;
+
+	public BuyDataBeans() {
+
+	}
+
+	public BuyDataBeans(int userId,int totalPrice,int deliveryId,int deliveryMethodPrice,String deliveryMethodName) {
+		this.userId = userId;
+		this.totalPrice = totalPrice;
+		this.deliveryId = deliveryId;
+		this.deliveryMethodPrice = deliveryMethodPrice;
+		this.deliveryMethodName = deliveryMethodName;
+	}
 
 
 
