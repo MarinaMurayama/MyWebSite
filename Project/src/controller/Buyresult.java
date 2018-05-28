@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,9 +14,8 @@ import javax.servlet.http.HttpSession;
 import beans.BuyDataBeans;
 import beans.BuyDetailDataBeans;
 import beans.ItemDataBeans;
-import dao.BuyDAO;
-import dao.BuyDetailDAO;
-import ec.EcHelper;
+import dao.BuyDao;
+import dao.BuyDetailDao;
 
 /**
  * Servlet implementation class Buyresult
@@ -41,40 +41,43 @@ public class Buyresult extends HttpServlet {
 	}
 
 	/**
-	 * 購入処理・処理が終了したら購入完了ページへフォワード
+	 * 購入・終了したら購入完了ページへフォワード
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
 
+				HttpSession session = request.getSession();
 		try {
-
-			// セッションからカート情報を取得・取得したらcatセッションを閉じる
-			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) EcHelper.cutSessionAttribute(session, "cart");
-
-			BuyDataBeans bdb = (BuyDataBeans) EcHelper.cutSessionAttribute(session, "bdb");
+			// セッションからカート情報を取得・取得したらセッションを閉じる
+			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>)session.getAttribute("cart");
+			BuyDataBeans bdb = (BuyDataBeans)session.getAttribute("bdb");
+			session.removeAttribute("cart");
+			session.removeAttribute("bdb");
+			System.out.println("session removeAttribute");
 
 			// 購入情報を登録
-			int buyId = BuyDAO.insertBuy(bdb);
+			int buyId = BuyDao.insertBuy(bdb);
 			// 購入詳細情報を購入情報IDに紐づけして登録
 			for (ItemDataBeans cartInItem : cart) {
 				BuyDetailDataBeans bddb = new BuyDetailDataBeans();
 				bddb.setBuyId(buyId);
 				bddb.setItemId(cartInItem.getId());
-				BuyDetailDAO.insertBuyDetail(bddb);
+				BuyDetailDao.insertBuyDetail(bddb);
 			}
 
 
-			/* ====購入完了ページ表示用==== */
-			BuyDataBeans resultBDB = BuyDAO.getBuyDataBeansByBuyId(buyId);
+			/* ====購入完了ページ表示用====
+			BuyDataBeans resultBDB = BuyDao.getBuyDataBeansByBuyId(buyId);
 			request.setAttribute("resultBDB", resultBDB);
 
 			// 購入アイテム情報
-			ArrayList<ItemDataBeans> buyIDBList = BuyDetailDAO.getItemDataBeansListByBuyId(buyId);
-			request.setAttribute("buyIDBList", buyIDBList);
+			ArrayList<ItemDataBeans> buyIDBList = BuyDetailDao.getItemDataBeansListByBuyId(buyId);
+			request.setAttribute("buyIDBList", buyIDBList); */
 
-			// 購入完了ページ
-			request.getRequestDispatcher(EcHelper.BUY_RESULT_PAGE).forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/buyresult.jsp");
+			dispatcher.forward(request, response);
+
 		} catch (Exception e) {
+			//TODO エラー処理
 			e.printStackTrace();
 			session.setAttribute("errorMessage", e.toString());
 			response.sendRedirect("Error");

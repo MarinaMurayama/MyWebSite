@@ -24,7 +24,7 @@
       <th scope="col">商品画像</th>
       <th scope="col">商品名</th>
       <th scope="col">販売価格</th>
-      <th scope="col">小計</th>
+      <th scope="col"></th>
     </tr>
   </thead>
 <tbody>
@@ -39,7 +39,7 @@
 	<tr>
       <td></td>
       <td></td>
-      <td>合計料金</td>
+      <td>小計</td>
       <td>${bdb.totalPrice}円</td>
     </tr>
     <tr>
@@ -48,22 +48,24 @@
       <td></td>
       <td>${bdb.deliveryMethodPrice}円</td>
     </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>合計料金</td>
+      <td>${bdb.deliveryMethodPrice + bdb.totalPrice}円</td>
+    </tr>
 </tbody>
 </table>
 </div>
 <br>
 <br>
 <p>※内容に変更がなければ購入ボタンを押して下さい。</p>
-
-
-<form action="BuyResult" method="post">
-	<a class="btn btn-secondary btn-lg btn-block"  href="Buyresult">購入　＞＞</a>
+<form method="post" action="Buyresult">
+<div class="syoppingtitle">
+	<button type="submit" class="btn btn-secondary btn-lg btn-block">購入　＞＞</button>
+</div>
 </form>
-
-
-
-
-
-
+<br>
+<br>
 </body>
 </html>
