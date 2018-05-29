@@ -31,11 +31,11 @@
 						<h3>1. フレーバーの種類</h3>
 						<div class="btn-group" data-toggle="buttons" >
 							<label class="btn btn-default active">
-							  <input type="radio" id="roast1" name="roast" value="1" autocomplete="off" />チョコレート系</label>
+							  <input type="radio" name="roast" value="1" autocomplete="off" />フローラル系</label>
 							<label class="btn btn-default">
-							  <input type="radio" id="roast2" name="roast" value="2" autocomplete="off" />フルーツ系</label>
+							  <input type="radio" name="roast" value="2" autocomplete="off" />フルーツ系</label>
 							<label class="btn btn-default">
-							  <input type="radio" id="roast3" name="roast" value="3" autocomplete="off" />フローラル系</label>
+							  <input type="radio" name="roast" value="3" autocomplete="off" />チョコレート系</label>
 						</div>
 						<p><a href="#flavor">フレーバーの種類とは？</a></p>
 					</dd>
@@ -43,11 +43,11 @@
 						<h3>2. 酸味の強弱</h3>
 						<div class="btn-group" data-toggle="buttons" >
 						  <label class="btn btn-default active">
-							<input type="radio" id="flavor1" name="flavor" value="1"  /> 弱</label>
+							<input type="radio" name="flavor" value="3"  /> 弱</label>
 						  <label class="btn btn-default active">
-							<input type="radio" id="flavor2" name="flavor" value="2" /> 中</label>
+							<input type="radio" name="flavor" value="2" /> 中</label>
 						  <label class="btn btn-default active">
-							<input type="radio" id="flavor3" name="flavor" value="3" /> 強</label>
+							<input type="radio" name="flavor" value="1" /> 強</label>
 						</div>
 						<p><a href="#sour">酸味の強弱とは？</a></p>
 					</dd>
@@ -55,11 +55,11 @@
 						<h3>3. 苦味の強弱</h3>
 						<div class="btn-group" data-toggle="buttons" >
 						 <label class="btn btn-default active">
-							<input type="radio" id="kind1" name="kind" value="1" /> 弱め</label>
+							<input type="radio"" name="kind" value="1" /> 弱め</label>
 						 <label class="btn btn-default active">
-							<input type="radio" id="kind2" name="kind" value="2" /> 中</label>
+							<input type="radio" name="kind" value="2" /> 中</label>
 						 <label class="btn btn-default active">
-							<input type="radio" id="kind3" name="kind" value="3" /> 強め</label>
+							<input type="radio" name="kind" value="3" /> 強め</label>
 						</div>
 						<p><a href="#bitter">苦味の強弱とは？</a></p>
 					</dd>
@@ -67,32 +67,29 @@
 						<h3>4. ボディ感</h3>
 					<div class="btn-group" data-toggle="buttons" >
 					 <label class="btn btn-default active">
-							<input type="radio" id="taste1" name="taste" value="1" /> 軽め</label>
+							<input type="radio"  name="taste" value="1" /> 軽め</label>
 					 <label class="btn btn-default active">
-							<input type="radio" id="taste2" name="taste" value="2" /> 中</label>
+							<input type="radio" name="taste" value="2" /> 中</label>
 					<label class="btn btn-default active">
-							<input type="radio" id="taste3" name="taste" value="3" /> 重め</label>
+							<input type="radio" name="taste" value="3" /> 重め</label>
 						</div>
 						<p><a href="#body">ボディ感とは？</a></p>
 					</dd>
 				</dl>
 				</div>
-
-				<input type="hidden" name="priority" value="" />
-				<input type="hidden" name="result" value="" />
 <br>
 <br>
 				<div class="syoppingtitle">
 				<div class="btn_area">
 					<input type="reset" value="やりなおす" onclick="dispClear();" class="btn btn-secondary btn-lg" />
-					<input type="button" value="結果を見る" onclick="location.href='beansnaviAnswer.html'" class="btn btn-secondary btn-lg"/>
+					<input type="submit" value="結果を見る" class="btn btn-secondary btn-lg"/>
 									<!--  とりあえず変更↑value="結果を見る" onclick="dispResult();" -->
 				</div>
 				</div>
 			</form>
 			<br>
 			<div class="syoppingtitle">
-			<a href="main.html">Back</a>
+			<a href="main">Back</a>
 			</div>
 <br>
 <br>

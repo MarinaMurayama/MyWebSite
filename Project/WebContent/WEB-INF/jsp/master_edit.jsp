@@ -19,7 +19,7 @@ ${errMsg2}
 ${errMsg3}
 <br>
 <div class="masterStable">
-<form class="p-3 mb-2 bg-white text-dark" action="MasterEdit" method="post">
+<form class="p-3 mb-2 bg-white text-dark" action="MasterEdit" enctype="multipart/form-data" method="post">
 <div class="form-group row">
 <input type="hidden" value="${Itemdata.id}" name="id">
 </div>

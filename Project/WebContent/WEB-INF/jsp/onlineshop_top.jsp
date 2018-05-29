@@ -45,9 +45,10 @@
 <!-- 商品一覧 -->
 <br>
 <div class="maintable">
+ <div class="form-inline">
 <c:forEach var="pro" items="${itemList}" >
- <div class="col-xs-9 form-inline">
-		<div class="card" style="width: 18rem;">
+
+		<div class="card" style="width: 18rem; height: 35rem;">
 			<a href="Item?item_id=${pro.id}">
   			<img class="card-img-top" src="${pro.item_img}"></a>
  		 	<div class="card-body">
@@ -56,20 +57,17 @@
    		 	<p><c:out value="${pro.price}"/>円</p>
  		 	</div>
 		</div>
-  </div>
+
   </c:forEach>
+    </div>
 </div>
-
-
-
-
-
-<div class="title">
-	<a href="main">Back</a>
+<br>
+<br>
+<div  class="syoppingtitle">
+	<a href="main">TOPへ戻る</a>
 </div>
-
-<h1 class="title"></h1>
-
-
+<br>
+<br>
+<br>
 </body>
 </html>

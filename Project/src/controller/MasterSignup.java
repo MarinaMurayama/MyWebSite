@@ -98,15 +98,10 @@ public class MasterSignup extends HttpServlet {
 			   itemDao.create(itemnum,tastenum,fName,name,detail,category,stocks,price);
 
 
-			   //画像を配置する時間分まつ
-			   try{
-				   Thread.sleep(1000); //3000ミリ秒Sleepする
-			   }catch(InterruptedException e){
+		 //画像を配置する時間分まつ
+			    Common.Delaytime();
+			    response.sendRedirect("Master");
 
-			   }
-
-
-			   response.sendRedirect("Master");
 		   }
 	}
 

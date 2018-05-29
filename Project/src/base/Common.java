@@ -105,6 +105,17 @@ public class Common {
 		return total;
 	}
 
+	/**
+	 *表示時間を遅らす
+	 */
+	 public static void Delaytime(){
+		 try{
+			   Thread.sleep(1000); //3000ミリ秒Sleepする
+		   }catch(InterruptedException e){
+
+		   }
+	 }
+
 
 }
 

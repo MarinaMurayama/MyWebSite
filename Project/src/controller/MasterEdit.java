@@ -5,11 +5,14 @@ import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
+import base.Common;
 import beans.ItemDataBeans;
 import dao.ItemDao;
 
@@ -17,6 +20,7 @@ import dao.ItemDao;
  * Servlet implementation class MasterEdit
  */
 @WebServlet("/MasterEdit")
+@MultipartConfig(location="C:\\Users\\marin\\OneDrive\\ドキュメント\\git\\MyWebSite\\Project\\WebContent\\picture", maxFileSize=10485760)
 public class MasterEdit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -58,16 +62,22 @@ public class MasterEdit extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setCharacterEncoding("UTF-8");
-		String img = request.getParameter("pic");
-        String name = request.getParameter("name");
-        String detail = request.getParameter("detail");
-        String category = request.getParameter("category");
-        String tastenum = request.getParameter("taste");
-        String itemnum = request.getParameter("itemnum");
-        int Id = (int)(Integer.parseInt(request.getParameter("id")));
-        int stocks = (int)(Integer.parseInt(request.getParameter("stocks")));
-        int price = (int)(Integer.parseInt(request.getParameter("price")));
+        //入力データを取得
+			request.setCharacterEncoding("UTF-8");
+
+  			Part part = request.getPart("pic");
+  			String fName = Common.getFileName(part);
+  			part.write(fName);
+  			fName = Common.IMAGE_PATH + fName;
+
+        	String name = request.getParameter("name");
+        	String detail = request.getParameter("detail");
+        	String category = request.getParameter("category");
+        	String tastenum = request.getParameter("taste");
+        	String itemnum = request.getParameter("itemnum");
+        	int Id = (int)(Integer.parseInt(request.getParameter("id")));
+        	int stocks = (int)(Integer.parseInt(request.getParameter("stocks")));
+        	int price = (int)(Integer.parseInt(request.getParameter("price")));
 
       //確認1. 金額と在庫数が0より小さい場合はエラー表示してjspへフォワード
         if (stocks <= 0 || price <= 0) {
@@ -104,25 +114,28 @@ public class MasterEdit extends HttpServlet {
 		   }
 
        //データ更新
-        if ( img .equals("") && itemnum.equals("")) { 		 //画像と型番は更新なし
+        if ( fName.equals("") && itemnum.equals("")) { 		 //画像と型番は更新なし
         	ItemDao itemDao = new ItemDao();
     		itemDao.update(tastenum,name,detail,category,stocks,price,Id);
     		response.sendRedirect("Master");
     		return;
-        }else if(img .equals("") && !(itemnum.equals(""))) { //画像は更新なし
+        }else if(fName.equals("") && !(itemnum.equals(""))) { //画像は更新なし
         	ItemDao itemDao = new ItemDao();
     		itemDao.updateNimg(itemnum,tastenum,name,detail,category,stocks,price,Id);
     		response.sendRedirect("Master");
     		return;
-        }else if(!(img .equals("")) && itemnum.equals("")) { //型番は更新なし
+        }else if(!(fName.equals("")) && itemnum.equals("")) { //型番は更新なし
         	ItemDao itemDao = new ItemDao();
-        	itemDao.updateNnum(img,tastenum,name,detail,category,stocks,price,Id);
+        	itemDao.updateNnum(fName,tastenum,name,detail,category,stocks,price,Id);
     		response.sendRedirect("Master");
     		return;
         }
 
         	ItemDao itemDao = new ItemDao();				 //全てのﾃﾞｰﾀを更新したい
-    		itemDao.updateAll(itemnum,tastenum,img,name,detail,category,stocks,price,Id);
+    		itemDao.updateAll(itemnum,tastenum,fName,name,detail,category,stocks,price,Id);
+
+    		//画像を配置する時間分まつ
+		    Common.Delaytime();
     		response.sendRedirect("Master");
 	}
 

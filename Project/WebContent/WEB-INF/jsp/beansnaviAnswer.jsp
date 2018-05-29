@@ -34,10 +34,10 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td ><img src="picture/mame2.PNG" alt="サンプル" class="master-top"></td>
-										<td><h3>【 デカフェ / メキシコ 】</h3>
-											<p>やわらかな苦味の後に、チョコレートやカカオのようなトロッとした甘みが残ります。余韻の長い、ゆっくりと味わえる銘柄です。カフェインレスです（99.9%除去）。</p>
-											<p><a href="onlineshop_top.html">商品ページ > </a></p>
+										<td ><img src="${itemList[0].item_img}" alt="サンプル" class="master-top"></td>
+										<td><h3>${itemList[0].name}</h3>
+											<p>${itemList[0].detail}</p>
+											<p><a href="Item?item_id=${itemList[0].id}">商品ページ > </a></p>
 										</td>
 									</tr>
 
@@ -62,17 +62,17 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td ><img src="picture/mame5.PNG" alt="サンプル" class="master-top"></td>
-										<td><h3>【 ブラジル ／ シティオ・ダ・トーレ 】</h3>
-											<p>ナッツ系の苦甘くやわらかいブラジルらしさ、口中に残るコクのある甘み。スイーツに合わせやすい深めのーローストがおすすめです。</p>
-											<p><a href="onlineshop_top.html">商品ページ > </a></p>
+										<td ><img src="${itemList[1].item_img}" alt="サンプル" class="master-top"></td>
+										<td><h3>${itemList[1].name}</h3>
+											<p>${itemList[1].detail}</p>
+											<p><a href="Item?item_id=${itemList[1].id}">商品ページ > </a></p>
 										</td>
 									</tr>
 									<tr>
-										<td ><img src="picture/mame6.PNG" alt="サンプル" class="master-top"></td>
-										<td><h3>【 ペルー ／ カフェオルキデア 】</h3>
-											<p>飲みやすい軽めのボディと、神秘的な独特の香り。ブレンドされてしまう事の多いペルーの豆ですが、ストレートで味わうととても個性的で、他には無い独特の風味を楽しめます。</p>
-											<p><a href="onlineshop_top.html">商品ページ > </a></p>
+										<td ><img src="${itemList[2].item_img}" alt="サンプル" class="master-top"></td>
+										<td><h3>${itemList[2].name}</h3>
+											<p>${itemList[2].detail}</p>
+											<p><a href="Item?item_id=${itemList[2].id}">商品ページ > </a></p>
 										</td>
 									</tr>
 								</tbody>
@@ -85,7 +85,7 @@
 <br>
 <br>
 <div class="title">
-			<a href="main.html"><<　TOPへ戻る </a>
+			<a href="main"><<　TOPへ戻る </a>
 	</div>
 
 <br>

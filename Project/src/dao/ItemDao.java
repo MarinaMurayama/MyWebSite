@@ -577,4 +577,55 @@ public class ItemDao {
 			}
 		}
 	}
+
+	/**
+	 * ★商品検索(BEANS NAVI)
+	 * @param searchWord
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<ItemDataBeans> beansnavi(String tastenum) throws SQLException {
+
+		Connection con = null;
+		PreparedStatement st = null;
+		List<ItemDataBeans> itemList = new ArrayList<ItemDataBeans>();
+
+		try {
+			con = DBManager.getConnection();
+
+			st = con.prepareStatement("SELECT * FROM m_item WHERE taste_num= ? ORDER BY stocks ASC");//商品のid番号昇順でｿｰﾄ
+			st.setString(1, tastenum);
+			System.out.println("BEANS NAVI ANSWER");
+
+			ResultSet rs = st.executeQuery();
+
+			while (rs.next()) {
+				ItemDataBeans item = new ItemDataBeans();
+				item.setId(rs.getInt("item_id"));
+				item.setItem_num(rs.getString("item_num"));
+				item.setTaste_num(rs.getString("taste_num"));
+				item.setItem_img(rs.getString("item_img"));
+				item.setName(rs.getString("item_name"));
+				item.setDetail(rs.getString("item_detail"));
+				item.setCategory_id(rs.getString("category_id"));
+				item.setStocks(rs.getInt("stocks"));
+				item.setPrice(rs.getInt("price"));
+				item.setCreateDate(rs.getString("create_date"));
+				item.setUpdateDate(rs.getString("update_date"));
+
+				itemList.add(item);
+			}
+			System.out.println("get Items by Category_id has been completed");
+			return itemList;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (con != null) {
+				con.close();
+			}
+		}
+	}
+
+
 }

@@ -10,8 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.ItemDataBeans;
+import beans.UserDataBeans;
 import dao.ItemDao;
 
 /**
@@ -33,14 +35,16 @@ public class Master extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//ログインセッションがない場合、ログイン画面にリダイレクトさせる
-	 /* HttpSession session = request.getSession();
+
+	//ログインセッションがない場合、ログイン画面にリダイレクトさせる
+
+		HttpSession session = request.getSession();
 		UserDataBeans u = (UserDataBeans)session.getAttribute("userInfo");
 
 		 if( u == null){
 		  response.sendRedirect("login");
 		  return;
-		} */
+		}
 
 	// 商品一覧情報を取得
 	ItemDao itemDao = new ItemDao();
