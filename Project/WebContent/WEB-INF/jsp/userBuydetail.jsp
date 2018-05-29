@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,12 +29,13 @@
 									</tr>
 								</thead>
 								<tbody>
+								<c:forEach var="item" items="${historyList}" >
 									<tr>
-										<td ><img src="picture/goods.PNG" alt="サンプル" class="master-top"></td>
-										<td ><!--=cartInItem.getName()-->コーヒードリッパー</td>
-										<td><!--=cartInItem.getPrice()-->1500円</td>
+										<td ><img src="${item.item_img}" alt="サンプル" class="master-top"></td>
+										<td >${item.name}</td>
+										<td>${item.price}円</td>
 									</tr>
-
+								 </c:forEach>
 								</tbody>
 							</table>
 							<table class="table">
@@ -40,26 +43,29 @@
 								<tr>
 									<th scope="col">購入日時</th>
 									<th scope="col">配送方法</th>
-									<th scope="col"></th>
+									<th scope="col">金額</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td><!--%=resultBDB.getFormatDate()%-->2018年05月10日 11:10</td>
-									<td><!--=resultBDB.getDeliveryMethodName()%-->通常配送</td>
-									<td><!--%=resultBDB.getTotalPrice()%-->0円</td>
+									<td>${hBdb.buyDate}</td>
+									<td>${hBdb.deliveryMethodName}</td>
+									<td>${hBdb.deliveryMethodPrice}円</td>
 								</tr>
 							</tbody>
 						</table>
 				</div>
 <br>
-<strong class="right" >合計料金：1500円</strong>
+<strong class="right" >合計料金：${hBdb.deliveryMethodPrice + hBdb.totalPrice}円</strong>
 <br>
 <br>
 		<form class="right" action="BuyResult" method="post">
-			<a href="purchaseHistoryList.html">BACK</a>
+			<a href="PurchaseHistoryList">BACK</a>
 		</form>
-
+<br>
+<br>
+<br>
+<br>
 </div>
 </div>
 

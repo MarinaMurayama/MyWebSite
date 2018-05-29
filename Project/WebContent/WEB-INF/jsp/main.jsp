@@ -24,7 +24,7 @@
       <a class="nav-item nav-link" href="Onlineshop_top">ONLINE SHOP</a>
       <a class="nav-item nav-link" href="login">LOGIN</a>
       <a class="nav-item nav-link" href="Logout">LOGOUT</a>
-        <a class="nav-item nav-link" href="purchaseHistoryList.html">USER BUY DATA</a>
+        <a class="nav-item nav-link" href="PurchaseHistoryList">USER BUY DATA</a>
        <a class="nav-item nav-link" href="Signup">SIGNUP</a>
         <a class="nav-item nav-link" href="MemberList">MEMBER</a>
                <a class="nav-item nav-link" href="Master">(master)</a>

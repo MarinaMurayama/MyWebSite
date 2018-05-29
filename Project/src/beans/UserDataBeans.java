@@ -18,6 +18,8 @@ public class UserDataBeans implements Serializable{
 	public UserDataBeans() {
 	}
 
+
+
 	//ログイン用
 	public UserDataBeans(int id,String loginId) {
 		this.id = id;

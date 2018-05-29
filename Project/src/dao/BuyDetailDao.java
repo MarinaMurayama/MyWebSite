@@ -83,7 +83,7 @@ public class BuyDetailDao {
 		}
 
 		 /**
-	     * 購入IDによる購入詳細情報検索
+	     * ★購入IDによる購入詳細情報検索
 	     * @param buyId
 	     * @return buyDetailItemList ArrayList<ItemDataBeans>
 	     *             購入詳細情報のデータを持つJavaBeansのリスト
@@ -96,13 +96,14 @@ public class BuyDetailDao {
 				con = DBManager.getConnection();
 
 				st = con.prepareStatement(
-						"SELECT m_item.id,"
-						+ " m_item.name,"
-						+ " m_item.price"
+						"SELECT m_item.item_id,"
+						+ "m_item.item_name,"
+						+ "m_item.price,"
+						+ "m_item.item_img"
 						+ " FROM t_buy_detail"
 						+ " JOIN m_item"
-						+ " ON t_buy_detail.item_id = m_item.id"
-						+ " WHERE t_buy_detail.buy_id = ?");
+						+ " ON t_buy_detail.item_id = m_item.item_id"
+						+ " WHERE t_buy_detail.buy_id= ?");
 				st.setInt(1, buyId);
 
 				ResultSet rs = st.executeQuery();
@@ -110,10 +111,10 @@ public class BuyDetailDao {
 
 				while (rs.next()) {
 					ItemDataBeans idb = new ItemDataBeans();
-					idb.setId(rs.getInt("id"));
-					idb.setName(rs.getString("name"));
+					idb.setId(rs.getInt("item_id"));
+					idb.setName(rs.getString("item_name"));
+					idb.setItem_img(rs.getString("item_img"));
 					idb.setPrice(rs.getInt("price"));
-
 
 					buyDetailItemList.add(idb);
 				}

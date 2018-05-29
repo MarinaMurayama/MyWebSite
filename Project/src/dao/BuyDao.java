@@ -73,7 +73,7 @@ public class BuyDao {
 						"SELECT * FROM t_buy"
 								+ " JOIN m_delivery"  //結合・配送ﾃｰﾌﾞﾙと
 								+ " ON t_buy.delivery_id = m_delivery.delivery_id"
-								+ " WHERE t_buy.id = ?");
+								+ " WHERE t_buy.buy_id = ?");
 				st.setInt(1, buyId);
 
 				ResultSet rs = st.executeQuery();
@@ -106,7 +106,7 @@ public class BuyDao {
 
 
 		/**
-		 * ★★ユーザデータ画面の購入履歴データ取得
+		 * ★ユーザデータ画面の購入履歴データ取得
 		 * @param userId
 		 * @return buyDataList(JavaBeansのリスト)
 		 * @throws SQLException
@@ -119,8 +119,8 @@ public class BuyDao {
 
 				st = con.prepareStatement(
 						"SELECT * FROM t_buy"
-								+ " JOIN m_delivery_method"
-								+ " ON t_buy.delivery_method_id = m_delivery_method.id"
+								+ " JOIN m_delivery"
+								+ " ON t_buy.delivery_id = m_delivery.delivery_id"
 								+ " WHERE t_buy.user_id = ?"
 								+ " ORDER BY create_date DESC");  //最新の購入日順に並び替え
 				st.setInt(1, userId);
@@ -131,12 +131,12 @@ public class BuyDao {
 
 				while (rs.next()) {
 					BuyDataBeans bdb = new BuyDataBeans();
-					bdb.setId(rs.getInt("id"));
+					bdb.setId(rs.getInt("buy_id"));
 					bdb.setTotalPrice(rs.getInt("total_price"));
 					bdb.setBuyDate(rs.getTimestamp("create_date"));
 					bdb.setUserId(rs.getInt("user_id"));
-					bdb.setDeliveryMethodName(rs.getString("name"));
-					bdb.setDeliveryMethodPrice(rs.getInt("price"));
+					bdb.setDeliveryMethodName(rs.getString("delivery"));
+					bdb.setDeliveryMethodPrice(rs.getInt("delivery_priceprice"));
 					buyDataList.add(bdb);
 				}
 

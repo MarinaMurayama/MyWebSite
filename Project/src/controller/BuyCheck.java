@@ -62,6 +62,14 @@ public class BuyCheck extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		try {
+
+			//ログインセッションがない場合、ログイン画面にリダイレクトさせる
+			UserDataBeans u = (UserDataBeans)session.getAttribute("userInfo");
+				if( u == null){
+					response.sendRedirect("Login");
+					return;
+				}
+
 			//選択された配送方法IDを取得・IDを使用しデータを取得
 			int deliveryId = Integer.parseInt(request.getParameter("delivery_id"));
 			DeliveryMethodDataBeans userSelectDMB = DeliveryMethodDAO.getDeliveryMethodDataBeansByID(deliveryId);

@@ -30,7 +30,7 @@
 					<a href="Onlineshop_top" class="btn btn-secondary">＜＜引き続き買い物をする</a>
 				</div>
 				<div class="col s6 center-align">
-					<a href="purchaseHistoryList.html" class="btn btn-secondary">購入履歴へ＞＞</a>
+					<a href="PurchaseHistoryList" class="btn btn-secondary">購入履歴へ＞＞</a>
 				</div>
 			</div>
 

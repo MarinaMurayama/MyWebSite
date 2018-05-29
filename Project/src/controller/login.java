@@ -39,8 +39,11 @@ public class login extends HttpServlet {
 		UserDataBeans u = (UserDataBeans)session.getAttribute("userInfo");
 
 		if(u != null){
-			  response.sendRedirect("main");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
+			dispatcher.forward(request, response);
+			return;
 		}
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 		dispatcher.forward(request, response);
 	}

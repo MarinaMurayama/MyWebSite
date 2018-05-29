@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="common.css">
 <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
-<title>buy&#x1F6D2;</title>
+<title>purchaseHistoryList&#x1F6D2;</title>
 </head>
 <body>
 <br>
@@ -27,30 +29,20 @@
 									</tr>
 								</thead>
 								<tbody>
+								<c:forEach var="buy" items="${buylist}" >
 									<tr>
-										<td >	<a href="userBuydetail.html" class="btn btn-secondary btn-lg">&#10057;</a></td>
-										<td >2018年05月10日 11:10</td>
-										<td>通常配送</td>
-										<td ><!--=cartInItem.getPrice()-->1500円</td>
+										<td ><a href="UserBuyDetail?id=${buy.id}" class="btn btn-secondary btn-lg">&#10057;</a></td>
+										<td >${buy.buyDate}</td>
+										<td>${buy.deliveryMethodName}</td>
+										<td >${buy.totalPrice}円</td>
 									</tr>
-									<tr>
-										<td >	<a href="userBuydetail.html" class="btn btn-secondary btn-lg">&#10057;</a></td>
-										<td >2018年05月11日 10:10</td>
-										<td>日時指定配送</td>
-										<td ><!--=cartInItem.getPrice()-->2300円</td>
-									</tr>
-									<tr>
-										<td >	<a href="userBuydetail.html" class="btn btn-secondary btn-lg">&#10057;</a></td>
-										<td >2018年05月20日 09:10</td>
-										<td>通常配送</td>
-										<td ><!--=cartInItem.getPrice()-->1800円</td>
-									</tr>
+									 </c:forEach>
 								</tbody>
 							</table>
 								<br>
 								<br>
 									<div class="right">
-									<a  href="main.html">Back</a>
+									<a  href="main">Back</a>
 							</div>
 								<br>
 								<br>
