@@ -34,14 +34,14 @@ public class MemberList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-					HttpSession session = request.getSession();
-					UserDataBeans u = (UserDataBeans)session.getAttribute("userInfo");
+				HttpSession session = request.getSession();
+				UserDataBeans u = (UserDataBeans)session.getAttribute("userInfo");
 
-					//ログインセッションがない場合、ログイン画面にリダイレクトさせる
-					/* if( u == null){
+				//ログインセッションがない場合、ログイン画面にリダイレクトさせる
+					if( u == null){
 					  response.sendRedirect("login");
 					  return;
-					} */
+					}
 
 				// ユーザ一覧情報を取得
 				UserDao userDao = new UserDao();

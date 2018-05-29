@@ -66,8 +66,8 @@ public class ItemAdd extends HttpServlet {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			session.setAttribute("errorMessage", e.toString());
-			response.sendRedirect("Error");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 

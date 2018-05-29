@@ -10,6 +10,7 @@
 <title>master&#x1f527;</title>
 </head>
 <body>
+<jsp:include page="/base/headder.jsp" />
 <br>
 <br>
 <br>

@@ -10,7 +10,7 @@
 <title>memberList</title>
 </head>
 <body>
-
+<jsp:include page="/base/headder.jsp" />
   <div class="jumbotron">
 <br>
 <br>

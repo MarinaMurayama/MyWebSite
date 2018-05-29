@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import base.Common;
 import base.DBManager;
 import beans.UserDataBeans;
 
@@ -32,7 +33,7 @@ public class UserDao {
 
 	            PreparedStatement pStmt = conn.prepareStatement(sql);
 	            pStmt.setString(1, loginId);
-	            pStmt.setString(2, password);
+	            pStmt.setString(2, Common.encryption(password));
 	            ResultSet rs = pStmt.executeQuery();
 
 
@@ -108,7 +109,7 @@ public class UserDao {
 	            pStmt.setString(2, name);
 	            pStmt.setString(3, birth_date);
 	            pStmt.setString(4, Address);
-	            pStmt.setString(5, password);
+	            pStmt.setString(5, Common.encryption(password));
 
 	            int result = pStmt.executeUpdate();
 	            // 追加された行数を出力
@@ -142,7 +143,7 @@ public class UserDao {
 	            pStmt.setString(1, name);
 	            pStmt.setString(2, birth_date);
 	            pStmt.setString(3, Address);
-	            pStmt.setString(4, password);
+	            pStmt.setString(4, Common.encryption(password));
 	            pStmt.setString(5, loginId);
 
 
@@ -336,88 +337,5 @@ public class UserDao {
 	        }
 	        return userList;
 	    }
-
-/*
-	public List<User> findConditional(String loginid,String username,String birthDate1,String birthDate2) {  //★★条件検索（ユーザ一覧画面）
-
-		Connection conn = null;
-	     List<User> userList = new ArrayList<User>();
-
-	     try {
-	         // データベースへ接続
-	         conn = DBManager.getConnection();
-
-	         // SELECT文を準備
-	         String sql = "SELECT * FROM user where login_id not in ('admin')";  //admin以外の人を検索したいよ。
-
-	         if(!loginid.equals("")) {  //loginidの入力があったら実行
-	        	 sql += " and login_id = '" + loginid + "'";  //SELECT * FROM user where login_id not in ('admin') and login_id = ' 入力したID';
-	         }
-
-	         if(!username.equals("")) {
-	        	 sql += " and name LIKE '%" + username + "%'";
-	         }
-
-	         if( !birthDate1.equals("")) {
-	        	 sql += " and birth_date >= " + "'"+ birthDate1 + "'" ;
-	         }
-
-	         if( !birthDate2.equals("")) {
-	        	 sql += " and birth_date <= " + "'"+ birthDate2 + "'"  ;
-	         }
-
-	         System.out.println(sql);
-
-	          // SELECTを実行し、結果表を取得
-	         Statement stmt = conn.createStatement();
-	         ResultSet rs = stmt.executeQuery(sql);
-
-
-
-//	         // SELECT文を準備
-//	         // TODO: 未実装：管理者以外を取得するようSQLを変更する
-//	         String sql = "SELECT * FROM user WHERE login_id=?  OR  name LIKE ?  OR (birth_date BETWEEN ? AND ? )";
-//	                                                                                            ↑これだと日付を両方入力しないと検索できない。片方だけでも出来るように。
-//	         PreparedStatement pStmt = conn.prepareStatement(sql);
-//	         pStmt.setString(1, loginid);
-//	         pStmt.setString(2, "%"  + username + "%");
-//	         pStmt.setString(3, birthDate1);
-//	         pStmt.setString(4, birthDate2);
-	//
-	//
-//	          // SELECTを実行し、結果表を取得
-//	         ResultSet rs = pStmt.executeQuery();
-
-	         // 結果表に格納されたレコードの内容を
-	         // Userインスタンスに設定し、ArrayListインスタンスに追加
-
-	         while (rs.next()) {
-	             int id = rs.getInt("id");
-	             String loginId = rs.getString("login_id");
-	             String name = rs.getString("name");
-	             Date birthDate = rs.getDate("birth_date");
-	             String password = rs.getString("password");
-	             String createDate = rs.getString("create_date");
-	             String updateDate = rs.getString("update_date");
-	             User user = new User(id, loginId, name, birthDate, password, createDate, updateDate);
-
-	             userList.add(user);
-	         }
-	     } catch (SQLException e) {
-	         e.printStackTrace();
-	         return null;
-	     } finally {
-	         // データベース切断
-	         if (conn != null) {
-	             try {
-	                 conn.close();
-	             } catch (SQLException e) {
-	                 e.printStackTrace();
-	                 return null;
-	             }
-	         }
-	     }
-	     return userList;
-	 }  */
 
 	}

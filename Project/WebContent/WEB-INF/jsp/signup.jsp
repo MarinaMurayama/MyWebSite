@@ -10,6 +10,7 @@
 <title>SIGN UP</title>
 </head>
 <body>
+<jsp:include page="/base/headder.jsp" />
 <div class="jumbotron">
 <div class="dateform">
 

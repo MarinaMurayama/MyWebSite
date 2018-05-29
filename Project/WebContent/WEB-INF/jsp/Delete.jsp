@@ -10,6 +10,7 @@
 <title>Delete</title>
 </head>
 <body>
+<jsp:include page="/base/headder.jsp" />
 <div class="jumbotron">
 
 <br>

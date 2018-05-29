@@ -9,6 +9,7 @@
 <title>Cart&#x1F6D2;</title>
 </head>
 <body>
+<jsp:include page="/base/headder.jsp" />
 <br>
 ${cartMessage}
 <br>

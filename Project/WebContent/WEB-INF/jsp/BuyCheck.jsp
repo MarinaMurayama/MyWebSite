@@ -13,6 +13,7 @@
 <title>Cart</title>
 </head>
 <body>
+<jsp:include page="/base/headder.jsp" />
 <br>
 <h1 class="syoppingtitle" >購入手続き &#x1F6D2;</h1>
 <br>

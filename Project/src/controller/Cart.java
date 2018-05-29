@@ -54,11 +54,8 @@ public class Cart extends HttpServlet {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			//TODO エラーページを作成
-			/*
-			 * session.setAttribute("errorMessage", e.toString());
-			 * response.sendRedirect("Error");
-			 */
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+			dispatcher.forward(request, response);
 
 		}
 	}

@@ -9,7 +9,7 @@
 <title>master</title>
 </head>
 <body>
-
+<jsp:include page="/base/headder.jsp" />
 <div class="itemdetail">
 <div class="card">
 <form action="ItemAdd" method="POST">

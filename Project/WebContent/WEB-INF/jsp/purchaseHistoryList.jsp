@@ -10,6 +10,7 @@
 <title>purchaseHistoryList&#x1F6D2;</title>
 </head>
 <body>
+<jsp:include page="/base/headder.jsp" />
 <br>
 <br>
 <br>

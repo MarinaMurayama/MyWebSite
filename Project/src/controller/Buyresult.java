@@ -79,8 +79,8 @@ public class Buyresult extends HttpServlet {
 		} catch (Exception e) {
 			//TODO エラー処理
 			e.printStackTrace();
-			session.setAttribute("errorMessage", e.toString());
-			response.sendRedirect("Error");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 

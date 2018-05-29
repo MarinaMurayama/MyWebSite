@@ -8,6 +8,7 @@
 <title>beansnavi診断結果</title>
 </head>
 <body>
+<jsp:include page="/base/headder.jsp" />
 <div class="jumbotron2">
 <div id="target_point"></div>
 <br>
@@ -82,6 +83,12 @@
 
 
 <br>
+<br>
+<br>
+<div class="title">
+			<a href="BeansNavi"><<　もう一度診断する </a>
+	</div>
+
 <br>
 <br>
 <div class="title">

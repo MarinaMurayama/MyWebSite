@@ -9,7 +9,7 @@
 <title>onlineshop_top</title>
 </head>
 <body>
-
+<jsp:include page="/base/headder.jsp" />
 <div class="jumbotron2">
 <br>
 <br>

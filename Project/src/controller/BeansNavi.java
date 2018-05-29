@@ -71,8 +71,8 @@ public class BeansNavi extends HttpServlet {
 		dispatcher.forward(request, response);
 
 		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 

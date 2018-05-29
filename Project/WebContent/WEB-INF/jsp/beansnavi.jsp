@@ -8,7 +8,7 @@
 <title>BEANS NAVI</title>
 </head>
 <body>
-
+<jsp:include page="/base/headder.jsp" />
 <div class="jumbotron2">
 <div id="target_point"></div>
 <br>
