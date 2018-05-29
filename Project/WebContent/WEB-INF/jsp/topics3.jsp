@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +55,7 @@
 										<td><h4>【 肉球マシュマロ 】</h4>
 											<p>■ただのマシュマロではありません。肉球のマシュマロです！</p>
 											<p>965円</p>
-											<p><a href="onlineshop_top.html">商品ページ > </a></p>
+											<p><a href="Item?item_id=20">商品ページ > </a></p>
 										</td>
 									</tr>
 								</tbody>
@@ -67,7 +68,7 @@
 <br>
 <br>
 <div class="title">
-			<a href="main.html"><<　TOPへ戻る </a>
+			<a href="main"><<　TOPへ戻る </a>
 	</div>
 
 <br>

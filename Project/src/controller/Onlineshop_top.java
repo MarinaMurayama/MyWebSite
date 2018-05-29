@@ -33,14 +33,7 @@ public class Onlineshop_top extends HttpServlet {
 	 * 商品一覧情報を取得
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//ログインセッションがない場合、ログイン画面にリダイレクトさせる
-		/* HttpSession session = request.getSession();
-		UserDataBeans u = (UserDataBeans)session.getAttribute("userInfo");
 
-		 if( u == null){
-		  response.sendRedirect("login");
-		  return;
-		} */
 	// 商品一覧情報を取得
 	ItemDao itemDao = new ItemDao();
 	List<ItemDataBeans>itemList = itemDao.findAll();

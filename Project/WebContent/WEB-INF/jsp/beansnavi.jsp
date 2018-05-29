@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,7 @@
 <br>
 <h2 class="syoppingtitle">優先順位の高い項目をクリックしてください。</h2>
 <br>
-<form name="frm" method="##" action="##">
+<form name="frm" method="post" action="BeansNavi">
 				<div class="syoppingtitle">
 				<dl class="switch">
 					<dd>

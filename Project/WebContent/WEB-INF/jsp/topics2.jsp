@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +58,7 @@
 										<td><h4>【 コーヒーブリューワー 】</h4>
 											<p>■バッグにお湯を注いで2分から6分待つだけで、リッチな味わいのスペシャリティコーヒーを楽しむことができます。濃い味のコーヒーが飲みたいときはお湯の量を減らすか抽出時間を長く、マイルドなコーヒーが飲みたいときはその逆を。</p>
 											<p>300円</p>
-											<p><a href="onlineshop_top.html">商品ページ > </a></p>
+											<p><a href="Item?item_id=18">商品ページ > </a></p>
 										</td>
 									</tr>
 									<tr>
@@ -65,7 +66,7 @@
 										<td><h4>【 コーヒーバネット 】</h4>
 											<p>■薄くコンパクトに収納できる本格ドリッパー</p>
 											<p>1900円</p>
-											<p><a href="onlineshop_top.html">商品ページ > </a></p>
+											<p><a href="Item?item_id=19">商品ページ > </a></p>
 										</td>
 									</tr>
 								</tbody>
@@ -78,7 +79,7 @@
 <br>
 <br>
 <div class="title">
-			<a href="main.html"><<　TOPへ戻る </a>
+			<a href="main"><<　TOPへ戻る </a>
 	</div>
 
 <br>

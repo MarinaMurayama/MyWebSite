@@ -99,21 +99,21 @@
 										<td ><img src="picture/father1.PNG" alt="サンプル" class="master-top"></td>
 										<td >【 お父さんいつもありがとう！ 】
 											<p>もうすぐ父の日ですね &#9834;  父の日はいつもどんな過ごし方をされていますか？</p>
-											<p><a href="topics1.html">つづきを読む >></a></p>
+											<p><a href="Topics?id=1">つづきを読む >></a></p>
 										</td>
 									</tr>
 									<tr>
 										<td ><img src="picture/img7.PNG" alt="サンプル" class="master-top"></td>
 										<td><p>【 気軽に外カフェを楽しみたい 】</p>
 											<p>野外で飲むコーヒーは特別な味 &#9834; コーヒー好きな皆さまがアウトドアで愛用されるMY COFFEE ITEMを拝見させていただきました。</p>
-											<p><a href="topics2.html">つづきを読む >></a></p>
+											<p><a href="Topics?id=2">つづきを読む >></a></p>
 										</td>
 									</tr>
 									<tr>
 										<td ><img src="picture/img12.PNG" alt="サンプル" class="master-top"></td>
 										<td >【 ペットとコーヒーの時間 vol.1 】
 											<p>お客様に、大切なペット達と一緒に過ごすコーヒー時間を取材させていただきました。</p>
-											<p><a href="topics3.html">つづきを読む >></a></p>
+											<p><a href="Topics?id=3">つづきを読む >></a></p>
 										</td>
 									</tr>
 								</tbody>
@@ -137,7 +137,7 @@
 		</div>
 
 		<div class="card" style="width: 18rem;">
-			<a href="beansnavi.html">
+			<a href="BeansNavi">
   			<img class="card-img-top" src="picture/img13.PNG"></a>
  		 	<div class="card-body">
    		 	<h5 class="card-title">BEANS NAVI</h5>

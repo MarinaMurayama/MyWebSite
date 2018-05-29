@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +55,7 @@
 										<td><h4>【 V60 透過ドリッパー01クリア 】</h4>
 											<p>■ネルドリップの美味しさとペーパードリップの手軽さを両立</p>
 											<p>432円</p>
-											<p><a href="onlineshop_top.html">商品ページ > </a></p>
+											<p><a href="Item?item_id=15" >商品ページ > </a></p>
 										</td>
 									</tr>
 									<tr>
@@ -62,7 +63,7 @@
 										<td><h4>【 V60用 ペーパーフィルター 40枚 】</h4>
 											<p>■1〜2杯用のペーパーフィルター</p>
 											<p>162円</p>
-											<p><a href="onlineshop_top.html">商品ページ > </a></p>
+											<p><a href="Item?item_id=16">商品ページ > </a></p>
 										</td>
 									</tr>
 									<tr>
@@ -70,7 +71,7 @@
 										<td><h4>【 V60 レンジサーバー 360 ブラック 】</h4>
 											<p>■サーバーにフタをセットしたままV60ドリッパーをのせられるため、収納時にとても便利です。</p>
 											<p>654円</p>
-											<p><a href="onlineshop_top.html">商品ページ > </a></p>
+											<p><a href="Item?item_id=17">商品ページ > </a></p>
 										</td>
 									</tr>
 								</tbody>
@@ -83,7 +84,7 @@
 <br>
 <br>
 <div class="title">
-			<a href="main.html"><<　TOPへ戻る </a>
+			<a href="main"><<　TOPへ戻る </a>
 	</div>
 
 <br>
