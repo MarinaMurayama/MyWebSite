@@ -40,7 +40,16 @@ public class BuyCheck extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		try {
+
 			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) session.getAttribute("cart");
+			//カート内に商品が入っていなかったら前の処理に戻す
+			if( cart.size() == 0){
+				String cartMessage = "カートに商品がありません";
+				response.sendRedirect("Cart");
+				return;
+			}
+
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/BuyCheck.jsp");
 			dispatcher.forward(request, response);
 
