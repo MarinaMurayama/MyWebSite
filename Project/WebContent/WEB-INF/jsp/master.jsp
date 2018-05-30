@@ -13,7 +13,7 @@
 <br>
 <br>
 <br>
-<h1 class="syoppingtitle" >商品一覧(3件)</h1>
+<h1 class="syoppingtitle" >商品一覧</h1>
 <br>
         <div class="syoppingtitle">
 		<div class="col s12 form-inline">

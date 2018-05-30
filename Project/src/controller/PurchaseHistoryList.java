@@ -31,40 +31,44 @@ public class PurchaseHistoryList extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 購入履歴一覧取得
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		 	// セッション開始
+			HttpSession session = request.getSession();
 
-					// セッション開始
-						HttpSession session = request.getSession();
-				try {
+			try {
+			//ログインセッションがない場合、ログイン画面にリダイレクトさせる
+			UserDataBeans u = (UserDataBeans)session.getAttribute("userInfo");
 
-					//ログインセッションがない場合、ログイン画面にリダイレクトさせる
-						UserDataBeans u = (UserDataBeans)session.getAttribute("userInfo");
+			if(u == null){
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+				dispatcher.forward(request, response);
+				return;
+			}
 
-							if(u == null){
-								RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-								dispatcher.forward(request, response);
-								return;
-							}
+			//ユーザーIDをセッションから取得
+			int userId =u.getId();
 
+			//購入履歴一覧を取得
+			ArrayList<BuyDataBeans>buylist = BuyDao.getBuyDataBeansListByUserId(userId);
+			//購入履歴がなかったらmainへ戻る
+			if(buylist.size() == 0){
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
+				dispatcher.forward(request, response);
+				return;
+			}
 
-					// ★★★★↓↓ログイン時に取得したユーザーIDをセッションから取得
-							int userId =u.getId();
-							System.out.println("userid =" + userId);
+			request.setAttribute("buylist",buylist);
 
-					//ﾕｰｻﾞの購入履歴一覧を取得
-					ArrayList<BuyDataBeans>buylist = BuyDao.getBuyDataBeansListByUserId(userId);
-					request.setAttribute("buylist",buylist);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/purchaseHistoryList.jsp");
+			dispatcher.forward(request, response);
 
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/purchaseHistoryList.jsp");
-					dispatcher.forward(request, response);
-
-				} catch (Exception e) {
-					e.printStackTrace();
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
-					dispatcher.forward(request, response);
+			} catch (Exception e) {
+			e.printStackTrace();
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+			dispatcher.forward(request, response);
 				}
 	}
 

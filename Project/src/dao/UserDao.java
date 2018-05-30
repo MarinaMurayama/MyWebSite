@@ -16,10 +16,8 @@ import beans.UserDataBeans;
 
 public class UserDao {
 
-
-
 		/**
-	     * ログインIDとパスワードに紐づくユーザ情報を返す
+	     * ★ログインIDとパスワードに紐づくユーザ情報を返す
 	     * @param loginId
 	     * @param password
 	     * @return
@@ -50,7 +48,6 @@ public class UserDao {
 	            e.printStackTrace();
 	            return null;
 	        } finally {
-	            // データベース切断
 	            if (conn != null) {
 	                try {
 	                    conn.close();
@@ -63,19 +60,16 @@ public class UserDao {
 	    }
 
 	    /**
-	     * 新規登録時のユーザID重複確認
-	     * @return 重複時はtrue
+	     *★新規登録時のユーザID重複確認
+	     * @return 重複時はtrueを返す
 	     */
 	    public boolean matchingId(String loginId){
 
 	    	Connection conn = null;
 	        try {
-	            // データベースへ接続
 	            conn = DBManager.getConnection();
-	            // SELECT文を準備
 	            String sql = "SELECT login_id FROM c_user WHERE login_id =?";
 
-	             // SELECTを実行し、結果表を取得
 	            PreparedStatement pStmt = conn.prepareStatement(sql);
 	            pStmt.setString(1, loginId);
 	            ResultSet rs = pStmt.executeQuery();
@@ -94,14 +88,12 @@ public class UserDao {
 	    }
 
 	    /**
-	     * 新規登録
+	     * ★新規登録処理
 	     */
 	    public void create(String loginId,String name,String birth_date,String Address,String password) {
 	    	Connection conn = null;
 	        try {
-	          	// データベースへ接続
 	            conn = DBManager.getConnection();
-	            // INSERT文を準備
 	            String sql = "INSERT INTO c_user(login_id,name,birth_date,address,password,create_date,update_date)values (?,?,?,?,?,now(),now())";
 
 	            PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -130,11 +122,12 @@ public class UserDao {
 	        }
 	    }
 
-
-	    public void update(String loginId,String name,String Address,String birth_date,String password) {   //★★データ更新
+	    /**
+	     * ★データ更新
+	     */
+	    public void update(String loginId,String name,String Address,String birth_date,String password) {
 	    	Connection conn = null;
 	        try {
-	          	// データベースへ接続
 	            conn = DBManager.getConnection();
 
 	            String sql ="UPDATE c_user SET name=?,birth_date=?,address=?,password=?,update_date=now() WHERE login_id =?";
@@ -156,7 +149,6 @@ public class UserDao {
 	            e.printStackTrace();
 
 	        } finally {
-	            // データベース切断
 	            if (conn != null) {
 	                try {
 	                    conn.close();
@@ -167,10 +159,12 @@ public class UserDao {
 	        }
 	    }
 
-	    public void update(String loginId,String name,String Address,String birth_date) {   //★★データ更新ﾊﾟｽﾜｰﾄﾞなしver
+	    /**
+	     * ★データ更新(パスワード以外のデータを更新)
+	     */
+	    public void update(String loginId,String name,String Address,String birth_date) {
 	    	Connection conn = null;
 	        try {
-	          	// データベースへ接続
 	            conn = DBManager.getConnection();
 
 	            String sql ="UPDATE c_user SET name=?,birth_date=?,address=?,update_date=now() WHERE login_id =?";
@@ -190,7 +184,6 @@ public class UserDao {
 	            e.printStackTrace();
 
 	        } finally {
-	            // データベース切断
 	            if (conn != null) {
 	                try {
 	                    conn.close();
@@ -202,15 +195,14 @@ public class UserDao {
 	    }
 
 	    /**
-	     * ユーザデータ削除
+	     * ★ユーザデータ削除
 	     */
 	    public void delete(String id){
 
 	    	Connection conn = null;
 	        try {
-	          	// データベースへ接続
+
 	            conn = DBManager.getConnection();
-	            // INSERT文を準備
 	            String sql = "DELETE FROM c_user WHERE user_id=?";
 
 	            PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -224,7 +216,6 @@ public class UserDao {
 	            e.printStackTrace();
 
 	        } finally {
-	            // データベース切断
 	            if (conn != null) {
 	                try {
 	                    conn.close();
@@ -237,19 +228,15 @@ public class UserDao {
 
 
 	    /**
-	     * ユーザ詳細
+	     * ★ユーザ詳細
 	     */
 	    public UserDataBeans findByUserDetail(String id) {
 
 	        Connection conn = null;
 	        try {
-	            // データベースへ接続
 	            conn = DBManager.getConnection();
-
-	            // SELECT文を準備
 	            String sql = "SELECT * FROM c_user WHERE user_id = ? ";
 
-	             // SELECTを実行し、結果表を取得
 	            PreparedStatement pStmt = conn.prepareStatement(sql);
 	            pStmt.setString(1, id);
 	            ResultSet rs = pStmt.executeQuery();
@@ -273,7 +260,6 @@ public class UserDao {
 	            e.printStackTrace();
 	            return null;
 	        } finally {
-	            // データベース切断
 	            if (conn != null) {
 	                try {
 	                    conn.close();
@@ -285,11 +271,8 @@ public class UserDao {
 	        }
 	    }
 
-
-
-
 	    /**
-	     * 全てのユーザ情報を取得する
+	     * ★全てのユーザ情報を取得する
 	     * @return
 	     */
 	    public List<UserDataBeans> findAll() {
@@ -297,23 +280,17 @@ public class UserDao {
 	        List<UserDataBeans> userList = new ArrayList<UserDataBeans>();
 
 	        try {
-	            // データベースへ接続
 	            conn = DBManager.getConnection();
-
-	            // SELECT文を準備
 	            String sql = "SELECT * FROM c_user where login_id not in ('admin')";
 
-	             // SELECTを実行し、結果表を取得
 	            Statement stmt = conn.createStatement();
 	            ResultSet rs = stmt.executeQuery(sql);
 
-	            // 結果表に格納されたレコードの内容を
-	            // Userインスタンスに設定し、ArrayListインスタンスに追加
 	            while (rs.next()) {
 	                int id = rs.getInt("user_id");
 	                String loginId = rs.getString("login_id");
 	                String name = rs.getString("name");
-	                Date birthDate = rs.getDate("birth_date");   //addresss
+	                Date birthDate = rs.getDate("birth_date");
 	                String password = rs.getString("password");
 	                String createDate = rs.getString("create_date");
 	                String updateDate = rs.getString("update_date");
@@ -325,7 +302,6 @@ public class UserDao {
 	            e.printStackTrace();
 	            return null;
 	        } finally {
-	            // データベース切断
 	            if (conn != null) {
 	                try {
 	                    conn.close();

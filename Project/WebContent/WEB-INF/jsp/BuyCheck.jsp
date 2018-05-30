@@ -15,7 +15,12 @@
 <body>
 <jsp:include page="/base/headder.jsp" />
 <br>
+<br>
 <h1 class="syoppingtitle" >購入手続き &#x1F6D2;</h1>
+<br>
+<div class="syoppingtitle">
+			<a href="Cart">前の画面に戻る</a>
+</div>
 <br>
 <!-- 商品リスト -->
 <div class="mastertable">
@@ -41,8 +46,8 @@
 <br>
 <!-- 配送方法を選択 -->
 <h3 class="syoppingtitle" >配送方法を選択して下さい</h3>
-<br>
 <form action="BuyCheck" method="post">
+<div class="syoppingtitle">
  <div class="btn-group">
   <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    配送方法
@@ -53,15 +58,9 @@
     <button class="dropdown-item" type="submit" value="3" name="delivery_id">特別配送</button>
   </div>
 </div>
+</div>
 </form>
-
-
-
-<div class="syoppingtitle">
-			<a href="Cart">Back</a>
-			</div>
 <br>
-
-
+<br>
 </body>
 </html>

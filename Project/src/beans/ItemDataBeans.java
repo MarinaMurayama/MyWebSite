@@ -34,7 +34,7 @@ public class ItemDataBeans implements Serializable {
 
 
 	public ItemDataBeans() {
-		// TODO 自動生成されたコンストラクター・スタブ
+
 	}
 
 

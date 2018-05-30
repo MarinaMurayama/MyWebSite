@@ -1,6 +1,8 @@
 package beans;
 
-public class DeliveryMethodDataBeans {
+import java.io.Serializable;
+
+public class DeliveryMethodDataBeans implements Serializable{
 
 	private int id;
 	private String delivery;

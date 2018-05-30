@@ -593,7 +593,7 @@ public class ItemDao {
 		try {
 			con = DBManager.getConnection();
 
-			st = con.prepareStatement("SELECT * FROM m_item WHERE taste_num= ? ORDER BY stocks ASC");//商品のid番号昇順でｿｰﾄ
+			st = con.prepareStatement("SELECT * FROM m_item WHERE taste_num= ? ORDER BY stocks DESC");//商品のストックが多い順でｿｰﾄ
 			st.setString(1, tastenum);
 			System.out.println("BEANS NAVI ANSWER");
 

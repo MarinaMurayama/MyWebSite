@@ -1,7 +1,10 @@
 package beans;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import base.Common;
 
 public class UserDataBeans implements Serializable{
 
@@ -18,8 +21,6 @@ public class UserDataBeans implements Serializable{
 	public UserDataBeans() {
 	}
 
-
-
 	//ログイン用
 	public UserDataBeans(int id,String loginId) {
 		this.id = id;
@@ -28,15 +29,15 @@ public class UserDataBeans implements Serializable{
 
     // 全てのデータをセットするコンストラクタUserDaoのfindByUserDetailﾒｿｯﾄﾞで使用
 	public UserDataBeans(int id, String loginId, String name, Date birthDate, String password,String address, String createDate,String updateDate) {
-			this.id = id;
-			this.loginId = loginId;
-			this.name = name;
-			this.birthDate = birthDate;
-			this.password = password;
-			this.address = address;
-			this.createDate = createDate;
-			this.updateDate = updateDate;
-		}
+		this.id = id;
+		this.loginId = loginId;
+		this.name = name;
+		this.birthDate = birthDate;
+		this.password = password;
+		this.address = address;
+		this.createDate = createDate;
+		this.updateDate = updateDate;
+	}
 
 	public UserDataBeans(int id, String loginId, String name, Date birthDate, String password, String createDate,String updateDate) {
 		this.id = id;
@@ -50,47 +51,26 @@ public class UserDataBeans implements Serializable{
 
 	// 更新情報(ﾊﾟｽﾜｰﾄﾞ含めてﾊﾞｰｼﾞｮﾝ)
 	public UserDataBeans(String loginId, String name,Date birthDate,String address,String createDate,String updateDate,String password) {
-				this.loginId = loginId;
-				this.name = name;
-				this.birthDate = birthDate;
-				this.address = address;
-				this.createDate = createDate;
-				this.updateDate = updateDate;
-				this.password = password;
-			}
-	// 更新情報(ﾊﾟｽﾜｰﾄﾞは更新しないﾊﾞｰｼﾞｮﾝ)
-	public UserDataBeans(String loginId, String name,Date birthDate,String address,String createDate,String updateDate) {
-				this.loginId = loginId;
-				this.name = name;
-				this.birthDate = birthDate;
-				this.address = address;
-				this.createDate = createDate;
-				this.updateDate = updateDate;
-			}
-
-
-
-
-	/**
-	 * ユーザー情報更新時の必要情報をまとめてセットするための処理
-	 *
-	 * @param name
-	 * @param loginId
-	 * @param address
-	 */
-	//TODO UPD
-	public void setUpdateUserDataBeansInfo(String name, String loginId, String address, int id) {
 		this.loginId = loginId;
 		this.name = name;
+		this.birthDate = birthDate;
 		this.address = address;
-		this.id = id;
+		this.createDate = createDate;
+		this.updateDate = updateDate;
+		this.password = password;
+	}
+
+	// 更新情報(ﾊﾟｽﾜｰﾄﾞは更新しないﾊﾞｰｼﾞｮﾝ)
+	public UserDataBeans(String loginId, String name,Date birthDate,String address,String createDate,String updateDate) {
+		this.loginId = loginId;
+		this.name = name;
+		this.birthDate = birthDate;
+		this.address = address;
+		this.createDate = createDate;
+		this.updateDate = updateDate;
 	}
 
 
-
-
-
-	//getter・setter
 	public String getName() {
 		return name;
 	}
@@ -155,9 +135,29 @@ public class UserDataBeans implements Serializable{
 		this.updateDate = updateDate;
 	}
 
+	public String getBirthDateStr() { //フォーマット修正して出力したい時に使用
+		String str = null;
+		str = new SimpleDateFormat("yyyy-MM-dd").format(birthDate);
+		return str;
+	}
 
+	public String getBirthDateFmt() {  //フォーマット修正して出力したい時に使用
+		String str = null;
+		str = new SimpleDateFormat("yyyy-MM-dd").format(birthDate);
+		return str;
+	}
 
+	public String getCreateDateFmt() {   //フォーマット修正して出力(ユーザ詳細画面で使用)
+		String str = null;
+		 str = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(Common.dateTimeConversion(createDate));
+		return str;
+	}
 
+	public String getUpdateDateFmt() {     //フォーマット修正して出力(ユーザ詳細画面で使用)
+		String str = null;
+		str = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(Common.dateTimeConversion(updateDate));
+		return str;
+	}
 
 }
 

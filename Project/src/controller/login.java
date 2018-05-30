@@ -31,7 +31,7 @@ public class login extends HttpServlet {
 
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * ログイン画面表示
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// ログインセッションがある場合、mein画面にリダイレクトさせる
@@ -49,7 +49,7 @@ public class login extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * ログインの入力チェック・ユーザIDをセッションにセット
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -62,21 +62,20 @@ public class login extends HttpServlet {
 		UserDao userDao = new UserDao();
 		UserDataBeans userInfo = userDao.getUserId(loginId, password);
 
-		     /** テーブルに該当のデータが見つからなかった場合 **/
-			 if (userInfo == null) {
-			 request.setAttribute("errMsg", "ログインに失敗しました。");
-			 // ログインjspにフォワード
-			 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-			 dispatcher.forward(request, response);
-			 return;
-			 }
+		/** テーブルに該当のデータが見つからなかった場合 **/
+		if (userInfo == null) {
+			request.setAttribute("errMsg", "ログインに失敗しました。");
+			// ログインjspにフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
 
 		/** テーブルに該当のデータが見つかった場合 **/
 		HttpSession session = request.getSession();
 		session.setAttribute("userInfo", userInfo);
 
 		System.out.println("login success");
-		// mainのjspにリダイレクト
 		response.sendRedirect("main");
 	}
 

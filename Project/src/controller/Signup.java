@@ -32,8 +32,8 @@ public class Signup extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
-			dispatcher.forward(request, response);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
+		dispatcher.forward(request, response);
 	}
 
 
@@ -47,7 +47,7 @@ public class Signup extends HttpServlet {
 		String loginId = request.getParameter("loginId");
         String name = request.getParameter("name");
         String birthDate = request.getParameter("birth_date");
-        String Address1 = request.getParameter("zip11");     //NG: String Address = request.getParameter("zip11" + "addr11");
+        String Address1 = request.getParameter("zip11");
         String Address2 = request.getParameter("addr11");
         String password = request.getParameter("password");
         String passwordCheck = request.getParameter("passwordcheck");
@@ -62,7 +62,7 @@ public class Signup extends HttpServlet {
       		return;
 		}
 
-      //ログインIDの重複確認
+        //ログインIDの重複確認
         UserDao user = new UserDao();
   		boolean i = user.matchingId(loginId);
   		if (i) {

@@ -60,10 +60,10 @@
 </div>
 <br>
 <br>
-<p>※内容に変更がなければ購入ボタンを押して下さい。</p>
+<p class="syoppingtitle">※内容に変更がなければ購入ボタンを押して下さい。</p>
 <form method="post" action="Buyresult">
 <div class="syoppingtitle">
-	<button type="submit" class="btn btn-secondary btn-lg btn-block">購入　＞＞</button>
+	<button type="submit" class="btn btn-secondary btn-lg">購入　＞＞</button>
 </div>
 </form>
 <br>

@@ -60,13 +60,11 @@ public class Common {
 		Charset charset = StandardCharsets.UTF_8;
 		//ハッシュアルゴリズム
 		String algorithm = "MD5";
-
 		//ハッシュ生成処理
 		byte[] bytes = null;
-		try {                                                                      //↓文字コードも指定できる。
-			bytes = MessageDigest.getInstance(algorithm).digest(password.getBytes(charset));   //getBytesメソッドは、対象の文字列をバイト・シーケンスにエンコード化して、結果をByte型の配列として返すメソッド
+		try {
+			bytes = MessageDigest.getInstance(algorithm).digest(password.getBytes(charset));
 		} catch (NoSuchAlgorithmException e) {
-			// 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 		String result = DatatypeConverter.printHexBinary(bytes);
@@ -75,7 +73,7 @@ public class Common {
 	}
 
     /**
-     * ファイルの名前を取得する
+     * 画像ファイルの名前を取得する
      * @param part
      * @return
      */
@@ -93,7 +91,6 @@ public class Common {
 
 	/**
 	 * 商品の合計金額を算出する
-	 *
 	 * @param items
 	 * @return total
 	 */

@@ -67,9 +67,13 @@ public class MasterEdit extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 
   			Part part = request.getPart("pic");
-  			String fName = Common.getFileName(part);
-  			part.write(fName);
-  			fName = Common.IMAGE_PATH + fName;
+  			String fName = "";
+
+  			if(part.getSize() > 0 ) {
+  	  			 fName = Common.getFileName(part);
+  	  			part.write(fName);
+  	  			fName = Common.IMAGE_PATH + fName;
+  			}
 
         	String name = request.getParameter("name");
         	String detail = request.getParameter("detail");
