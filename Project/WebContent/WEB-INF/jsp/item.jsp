@@ -31,7 +31,7 @@
 </div>
 </div>
     <div class="syoppingtitle">
-			<a href="Onlineshop_top">Back</a>
+			<a href="Onlineshop_top">ONLINESHOP TOPへ戻る</a>
 	</div>
 <br>
 </body>
