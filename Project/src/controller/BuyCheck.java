@@ -38,7 +38,7 @@ public class BuyCheck extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
+			HttpSession session = request.getSession();
 		try {
 
 			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) session.getAttribute("cart");
@@ -47,8 +47,7 @@ public class BuyCheck extends HttpServlet {
 				String cartMessage = "カートに商品がありません";
 				response.sendRedirect("Cart");
 				return;
-			}
-
+			 }
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/BuyCheck.jsp");
 			dispatcher.forward(request, response);
