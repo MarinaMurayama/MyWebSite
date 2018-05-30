@@ -23,16 +23,21 @@
 	<p class="text">ログインID:${Userdata.loginId}</p>
 	<p class="text">本当に削除してよろしいですか？</p>
 <br>
-<form class="login-form" action="Delete" method="post">
-	<div class="button_wrapper">
-		<button type="submit" class="btn btn-secondary" onclick="location.href='memberList.html'">OK</button>
-		<input type="hidden" value="${Userdata.id}" class="form-control"  name="id">
+<div class="title">
+	<div class="col-xs-9 form-inline">
+	<form class="login-form" action="Delete" method="post">
+		<div class="col s6 center-align">
+			<button type="submit" class="btn btn-secondary" onclick="location.href='memberList.html'">OK</button>
+			<input type="hidden" value="${Userdata.id}" class="form-control"  name="id">
+		</div>
+	</form>
+	<div class="col s6 center-align">
+		<a class="btn btn-secondary"  href="MemberList">cancel</a>
 	</div>
-</form>
-	<div class="button_wrapper">
-		<a type="button" class="btn btn-secondary"  href="MemberList">cancel</a>
 	</div>
+</div>
 	</div>
+<br>
 </div>
 </div>
 </body>

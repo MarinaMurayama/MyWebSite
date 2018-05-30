@@ -15,17 +15,20 @@
 <br>
 <br>
 <h1 class="syoppingtitle" >情報編集</h1>
+<div class="syoppingtitle" >
 ${errMsg1}
 ${errMsg2}
 ${errMsg3}
+</div>
 <br>
+<p class="syoppingtitle"><font color="red">＊</font>内容に変更がある場合のみ入力して下さい</p>
 <div class="masterStable">
 	<form class="p-3 mb-2 bg-white text-dark" action="MasterEdit" enctype="multipart/form-data" method="post">
 			<div class="form-group row">
 				<input type="hidden" value="${Itemdata.id}" name="id">
 			</div>
   			<div class="form-group row">
-    			<label for="inputLoginID" class="col-sm-2 col-form-label" >商品画像　　※内容に変更がある場合のみ入力して下さい</label>
+    			<label for="inputLoginID" class="col-sm-2 col-form-label" ><font color="red">＊</font>商品画像</label>
     				<div class="col-sm-10">
       					<input type="file" class="form-control" name="pic">
     				</div>
@@ -97,7 +100,7 @@ ${errMsg3}
       			</div>
 		</div>
  			<div class="form-group row">
-    			<label for="inputLoginID" class="col-sm-2 col-form-label">型番</label>
+    			<label for="inputLoginID" class="col-sm-2 col-form-label"><font color="red">＊</font>型番</label>
     			<div class="col-sm-10">
       			<input type="text" class="form-control" name="itemnum" placeholder="内容に変更がある場合のみ入力して下さい">
     			</div>

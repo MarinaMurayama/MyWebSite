@@ -15,32 +15,36 @@
 <br>
 <br>
 <h1 class="syoppingtitle" >新規作成</h1>
+<div class="syoppingtitle" >
 	${errMsg1}
 	${errMsg2}
 	${errMsg3}
+</div>
+<br>
+<h4 class="syoppingtitle" ><font color="red">＊</font>入力必須項目です</h4>
 <br>
 <div class="masterStable">
 <form class="p-3 mb-2 bg-white text-dark" action="MasterSignup" enctype="multipart/form-data" method="post">
   			<div class="form-group row">
-    			<label for="inputLoginID" class="col-sm-2 col-form-label">商品画像</label>
+    			<label for="inputLoginID" class="col-sm-2 col-form-label"><font color="red">＊</font>商品画像</label>
     			<div class="col-sm-10">
       			<input type="file" class="form-control" name="pic" required>
     			</div>
   			</div>
   			<div class="form-group row">
-    			<label for="inputPassword" class="col-sm-2 col-form-label">商品名</label>
+    			<label for="inputPassword" class="col-sm-2 col-form-label"><font color="red">＊</font>商品名</label>
     			<div class="col-sm-10">
       			<input type="text" class="form-control" name="name" required>
     			</div>
   			</div>
    			<div class="form-group row">
-    			<label for="inputPassword" class="col-sm-2 col-form-label">商品説明</label>
+    			<label for="inputPassword" class="col-sm-2 col-form-label"><font color="red">＊</font>商品説明</label>
     			<div class="col-sm-10">
       			<input type="text" class="form-control" name="detail" required>
     			</div>
   			</div>
   			<div class="form-group row">
-    			<label for="inputPassword" class="col-sm-2 col-form-label">商品カテゴリ</label>
+    			<label for="inputPassword" class="col-sm-2 col-form-label"><font color="red">＊</font>商品カテゴリ</label>
     			<div class="btn-group" data-toggle="buttons" >
 					<label class="btn btn-default active">
 					<input type="radio" id="roast1" name="category" value="1" autocomplete="off" required/>コーヒー豆</label>
@@ -60,19 +64,19 @@
       			</div>
     			</div>
  			<div class="form-group row">
-    			<label for="inputLoginID" class="col-sm-2 col-form-label">型番</label>
+    			<label for="inputLoginID" class="col-sm-2 col-form-label"><font color="red">＊</font>型番</label>
     			<div class="col-sm-10">
       			<input type="text" class="form-control" name="itemnum" required>
     			</div>
   			</div>
     		<div class="form-group row">
-    			<label for="inputLoginID" class="col-sm-2 col-form-label">ショップ在庫</label>
+    			<label for="inputLoginID" class="col-sm-2 col-form-label"><font color="red">＊</font>ショップ在庫</label>
     			<div class="col-sm-10">
       			<input type="number" class="form-control" name="stocks" required>
    			</div>
   			</div>
     			<div class="form-group row">
-    			<label for="inputLoginID" class="col-sm-2 col-form-label">販売価格</label>
+    			<label for="inputLoginID" class="col-sm-2 col-form-label"><font color="red">＊</font>販売価格</label>
     			<div class="col-sm-10">
       			<input type="number" class="form-control" name="price" required>
     			</div>

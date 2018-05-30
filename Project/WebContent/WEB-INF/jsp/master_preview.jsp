@@ -25,8 +25,12 @@
   </form>
 </div>
 </div>
+	<br>
+	<br>
 		<div class="link">
 			<a href="Master">戻る</a>
 		</div>
+	<br>
+	<br>
 </body>
 </html>

@@ -11,9 +11,12 @@
 <body>
 <jsp:include page="/base/headder.jsp" />
 <br>
-<div class="syoppingtitle" >${cartMessage}</div>
-<br>
 <h1 class="syoppingtitle" >カート内の中身 &#x1F6D2;</h1>
+	<c:if test="${cartMessage != null}" >
+		<div class="alert alert-danger" role="alert">
+		<div class="syoppingtitle" >${cartMessage}</div>
+	</div>
+	</c:if>
 		<div class="syoppingtitle">
 			<a href="main">TOPへ戻る</a>
 		</div>
@@ -24,7 +27,7 @@
 <form action="ItemDelete" method="post" class="shoppingcart">
 	<div class="form-inline">
 	 	<c:forEach var="item" items="${cart}" >
-			<div class="card" style="width: 18rem; height: 30rem;">
+			<div class="card" style="width: 18rem; height: 35rem;">
   			<img class="card-img-top" src="${item.item_img}">
  		 	<div class="card-body">
    		 	<h5 class="card-title">${item.name}</h5>
