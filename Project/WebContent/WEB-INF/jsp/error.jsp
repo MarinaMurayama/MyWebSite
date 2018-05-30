@@ -8,7 +8,6 @@
 <title>error</title>
 </head>
 <body>
-
 <div class="syoppingtitle">
 <br>
 <br>
@@ -26,13 +25,11 @@
 <br>
 <br>
 <br>
-			<div class="col s12 form-inline">
-				<div class="col s6 center-align">
-					<a href="main" class="btn btn-secondary">TOPページに戻る</a>
-				</div>
-			</div>
-
+	<div class="col s12 form-inline">
+		<div class="col s6 center-align">
+			<a href="main" class="btn btn-secondary">TOPページに戻る</a>
+		</div>
 	</div>
-
+</div>
 </body>
 </html>

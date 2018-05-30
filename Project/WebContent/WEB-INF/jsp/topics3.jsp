@@ -64,14 +64,12 @@
 				</div>
 	</div>
 
-
 <br>
 <br>
 <br>
-<div class="title">
-			<a href="main"><<　TOPへ戻る </a>
-	</div>
-
+			<div class="title">
+				<a href="main"><<　TOPへ戻る </a>
+			</div>
 <br>
 <br>
 </body>

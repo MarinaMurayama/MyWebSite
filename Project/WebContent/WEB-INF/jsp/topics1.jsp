@@ -35,7 +35,6 @@
 <p>それが「父の日」です。</p>
 <p>少し照れるかもしれませんが、普段はなかなか言えない言葉を伝えましょう。</p>
 
-
 </div>
 <br>
 <br>
@@ -78,16 +77,13 @@
 								</tbody>
 								</table>
 				</div>
-	</div>
-
-
+</div>
 <br>
 <br>
 <br>
-<div class="title">
-			<a href="main"><<　TOPへ戻る </a>
-	</div>
-
+			<div class="title">
+				<a href="main"><<　TOPへ戻る </a>
+			</div>
 <br>
 <br>
 </body>

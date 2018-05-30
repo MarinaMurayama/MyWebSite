@@ -29,7 +29,7 @@ public class Update extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * ユーザデータ更新画面を表示
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
@@ -39,7 +39,7 @@ public class Update extends HttpServlet {
 		UserDataBeans Userdata = userDao.findByUserDetail(id);
 
 		request.setCharacterEncoding("UTF-8");
-		request.setAttribute("Userdata",Userdata);  //ﾘｸｴｽﾄｽｺｰﾌﾟにｲﾝｽﾀﾝｽを保存(属性名、ｲﾝｽﾀﾝｽ)
+		request.setAttribute("Userdata",Userdata);
 		UserDataBeans u = (UserDataBeans)request.getAttribute("Userdata");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Update.jsp");
@@ -47,7 +47,7 @@ public class Update extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * 入力された値の確認とデータ更新
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

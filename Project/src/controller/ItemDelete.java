@@ -48,20 +48,21 @@ public class ItemDelete extends HttpServlet {
 
 			String cartMessage = "";
 
-			//if :削除処理 ,else:削除商品がないのでメッセージだけ渡す
+		// 削除処理
 			if (deleteItem != null) {
 				for (String deleteItemId : deleteItem) {  					 //削除商品idを取得(この時点ではString型で)
 					for (ItemDataBeans cartInItem : cart) {						 //カート内の商品を全て取り出す
 						if (cartInItem.getId() == Integer.parseInt(deleteItemId)) { //削除対象idと一致した要素を削除
 							cart.remove(cartInItem);
 							break;
-						}
-					}
-				}
-				cartMessage = "削除しました";
-			} else {
-				cartMessage = "削除する商品が選択されていません";
+						 }
+					  }
+				  }
+					cartMessage = "削除しました";
+			  } else {
+					cartMessage = "削除する商品が選択されていません";
 			}
+
 
 			request.setAttribute("cartMessage", cartMessage);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/InCart.jsp");

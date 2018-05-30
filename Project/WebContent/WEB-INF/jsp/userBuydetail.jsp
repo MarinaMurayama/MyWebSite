@@ -30,31 +30,31 @@
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach var="item" items="${historyList}" >
-									<tr>
-										<td ><img src="${item.item_img}" alt="サンプル" class="master-top"></td>
-										<td >${item.name}</td>
-										<td>${item.price}円</td>
-									</tr>
-								 </c:forEach>
+									<c:forEach var="item" items="${historyList}" >
+										<tr>
+											<td ><img src="${item.item_img}" alt="サンプル" class="master-top"></td>
+											<td >${item.name}</td>
+											<td>${item.price}円</td>
+										</tr>
+								 	</c:forEach>
 								</tbody>
 							</table>
 							<table class="table">
-							<thead>
-								<tr>
-									<th scope="col">購入日時</th>
-									<th scope="col">配送方法</th>
-									<th scope="col">金額</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>${hBdb.buyDate}</td>
-									<td>${hBdb.deliveryMethodName}</td>
-									<td>${hBdb.deliveryMethodPrice}円</td>
-								</tr>
-							</tbody>
-						</table>
+								<thead>
+									<tr>
+										<th scope="col">購入日時</th>
+										<th scope="col">配送方法</th>
+										<th scope="col">金額</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>${hBdb.buyDate}</td>
+										<td>${hBdb.deliveryMethodName}</td>
+										<td>${hBdb.deliveryMethodPrice}円</td>
+									</tr>
+								</tbody>
+							</table>
 				</div>
 <br>
 <strong class="right" >合計料金：${hBdb.deliveryMethodPrice + hBdb.totalPrice}円</strong>
@@ -69,6 +69,5 @@
 <br>
 </div>
 </div>
-
 </body>
 </html>

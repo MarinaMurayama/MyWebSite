@@ -77,20 +77,19 @@
 					</dd>
 				</dl>
 				</div>
-<br>
-<br>
-				<div class="syoppingtitle">
+				<br>
+				<br>
+			<div class="syoppingtitle">
 				<div class="btn_area">
 					<input type="reset" value="やりなおす" onclick="dispClear();" class="btn btn-secondary btn-lg" />
 					<input type="submit" value="結果を見る" class="btn btn-secondary btn-lg"/>
-									<!--  とりあえず変更↑value="結果を見る" onclick="dispResult();" -->
 				</div>
-				</div>
-			</form>
-			<br>
-			<div class="syoppingtitle">
-			<a href="main">Back</a>
 			</div>
+</form>
+<br>
+	<div class="syoppingtitle">
+			<a href="main">Back</a>
+	</div>
 <br>
 <br>
 <br>
@@ -99,7 +98,6 @@
 <br>
 <br>
 <br>
-
 <div class="center">
 			<div class="p-3 mb-2 bg-dark text-white">
 			<h4 id="flavor" class="headline">フレーバーの種類とは？</h4></div>

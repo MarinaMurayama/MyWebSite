@@ -19,53 +19,53 @@
 <br>
 
 <div class="mastertable">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">商品画像</th>
-      <th scope="col">商品名</th>
-      <th scope="col">販売価格</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-<tbody>
-	<c:forEach var="item" items="${cart}" >
-    <tr>
-      <td><img src="${item.item_img}" alt="サンプル" class="master-top"></td>
-      <td>${item.name}</td>
-      <td>${item.price}円</td>
-      <td></td>
-    </tr>
-	</c:forEach>
-	<tr>
-      <td></td>
-      <td></td>
-      <td>小計</td>
-      <td>${bdb.totalPrice}円</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>${bdb.deliveryMethodName}</td>
-      <td></td>
-      <td>${bdb.deliveryMethodPrice}円</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td>合計料金</td>
-      <td>${bdb.deliveryMethodPrice + bdb.totalPrice}円</td>
-    </tr>
-</tbody>
-</table>
+	<table class="table">
+  		<thead>
+    		<tr>
+      		<th scope="col">商品画像</th>
+      		<th scope="col">商品名</th>
+      		<th scope="col">販売価格</th>
+      		<th scope="col"></th>
+    		</tr>
+  		</thead>
+		<tbody>
+			<c:forEach var="item" items="${cart}" >
+    			<tr>
+      				<td><img src="${item.item_img}" alt="サンプル" class="master-top"></td>
+      				<td>${item.name}</td>
+      				<td>${item.price}円</td>
+      				<td></td>
+    			</tr>
+			</c:forEach>
+				<tr>
+      				<td></td>
+      				<td></td>
+      				<td>小計</td>
+      				<td>${bdb.totalPrice}円</td>
+    			</tr>
+    			<tr>
+      				<td></td>
+      				<td>${bdb.deliveryMethodName}</td>
+      				<td></td>
+      				<td>${bdb.deliveryMethodPrice}円</td>
+    			</tr>
+    			<tr>
+      				<td></td>
+      				<td></td>
+      				<td>合計料金</td>
+      				<td>${bdb.deliveryMethodPrice + bdb.totalPrice}円</td>
+    			</tr>
+		</tbody>
+	</table>
 </div>
 <br>
 <br>
 <p class="syoppingtitle">※内容に変更がなければ購入ボタンを押して下さい。</p>
-<form method="post" action="Buyresult">
-<div class="syoppingtitle">
-	<button type="submit" class="btn btn-secondary btn-lg">購入　＞＞</button>
-</div>
-</form>
+			<form method="post" action="Buyresult">
+				<div class="syoppingtitle">
+				<button type="submit" class="btn btn-secondary btn-lg">購入　＞＞</button>
+				</div>
+			</form>
 <br>
 <br>
 </body>

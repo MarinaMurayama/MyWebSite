@@ -28,7 +28,7 @@ public class UserDetail extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * ユーザデータ詳細を表示
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -44,8 +44,7 @@ public class UserDetail extends HttpServlet {
 				request.setAttribute("Userdata", Userdata);
 
 				 // リクエストスコープからインスタンスを取得
-				 UserDataBeans u = (UserDataBeans)request.getAttribute("Userdata");
-
+				UserDataBeans u = (UserDataBeans)request.getAttribute("Userdata");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UserDetail.jsp");
 				dispatcher.forward(request, response);
 	}

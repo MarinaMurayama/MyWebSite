@@ -40,6 +40,7 @@ public class Buyresult extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+
 	/**
 	 * 購入・終了したら購入完了ページへフォワード
 	 */
@@ -64,24 +65,15 @@ public class Buyresult extends HttpServlet {
 				BuyDetailDao.insertBuyDetail(bddb);
 			}
 
-
-			/* ====購入完了ページ表示用====
-			BuyDataBeans resultBDB = BuyDao.getBuyDataBeansByBuyId(buyId);
-			request.setAttribute("resultBDB", resultBDB);
-
-			// 購入アイテム情報
-			ArrayList<ItemDataBeans> buyIDBList = BuyDetailDao.getItemDataBeansListByBuyId(buyId);
-			request.setAttribute("buyIDBList", buyIDBList); */
-
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/buyresult.jsp");
 			dispatcher.forward(request, response);
 
-		} catch (Exception e) {
-			//TODO エラー処理
+			} catch (Exception e) {
+
 			e.printStackTrace();
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
 			dispatcher.forward(request, response);
+			}
 		}
-	}
 
 }

@@ -34,13 +34,13 @@ public class Onlineshop_top extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	// 商品一覧情報を取得
-	ItemDao itemDao = new ItemDao();
-	List<ItemDataBeans>itemList = itemDao.findAll();
+			// 商品一覧情報を取得
+			ItemDao itemDao = new ItemDao();
+			List<ItemDataBeans>itemList = itemDao.findAll();
 
-	request.setAttribute("itemList", itemList);
-	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/onlineshop_top.jsp");
-	dispatcher.forward(request, response);
+			request.setAttribute("itemList", itemList);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/onlineshop_top.jsp");
+			dispatcher.forward(request, response);
 	}
 
 	/**

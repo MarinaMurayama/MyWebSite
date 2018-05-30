@@ -29,22 +29,21 @@ public class MasterPreview extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 商品マスタのプレビュー画面
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
+			request.setCharacterEncoding("UTF-8");
 
 		try {
-		int id = Integer.parseInt(request.getParameter("id"));
-		System.out.println(id);
+			int id = Integer.parseInt(request.getParameter("id"));
+			System.out.println(id);
 
-		ItemDataBeans Itemdata = ItemDao.getItemByItemID(id);
+			ItemDataBeans Itemdata = ItemDao.getItemByItemID(id);
 
-		request.setAttribute("Itemdata",Itemdata);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master_preview.jsp");
-		dispatcher.forward(request, response);
+			request.setAttribute("Itemdata",Itemdata);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master_preview.jsp");
+			dispatcher.forward(request, response);
 
 		} catch (SQLException e) {
 			e.printStackTrace();

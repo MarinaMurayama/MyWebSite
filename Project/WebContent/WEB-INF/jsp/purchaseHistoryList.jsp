@@ -19,36 +19,35 @@
 <br>
 			<div class="card grey lighten-5">
 				<div class="mastertable">
-							<!-- 詳細 -->
-							<table class="table">
-								<thead>
-									<tr>
-										<th scope="col"></th>
-										<th scope="col">購入日時</th>
-										<th scope="col">配送方法</th>
-										<th scope="col">購入金額</th>
-									</tr>
-								</thead>
-								<tbody>
-								<c:forEach var="buy" items="${buylist}" >
-									<tr>
-										<td ><a href="UserBuyDetail?id=${buy.id}" class="btn btn-secondary btn-lg">&#10057;</a></td>
-										<td >${buy.buyDate}</td>
-										<td>${buy.deliveryMethodName}</td>
-										<td >${buy.totalPrice}円</td>
-									</tr>
-									 </c:forEach>
-								</tbody>
-							</table>
-								<br>
-								<br>
-									<div class="right">
-									<a  href="main">Back</a>
-							</div>
-								<br>
-								<br>
-							</div>
-							</div>
-
+				<!-- 詳細 -->
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col">購入日時</th>
+							<th scope="col">配送方法</th>
+							<th scope="col">購入金額</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="buy" items="${buylist}" >
+							<tr>
+								<td ><a href="UserBuyDetail?id=${buy.id}" class="btn btn-secondary btn-lg">&#10057;</a></td>
+								<td >${buy.buyDate}</td>
+								<td>${buy.deliveryMethodName}</td>
+								<td >${buy.totalPrice}円</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+					<br>
+					<br>
+		<div class="right">
+			<a  href="main">Back</a>
+		</div>
+					<br>
+					<br>
+				</div>
+			</div>
 </body>
 </html>

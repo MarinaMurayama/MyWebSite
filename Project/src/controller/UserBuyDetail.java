@@ -38,7 +38,7 @@ public class UserBuyDetail extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		try {
+	try {
 
 		// 選択された購入IDを受け取る
 		String id = request.getParameter("id");

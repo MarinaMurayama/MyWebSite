@@ -15,9 +15,7 @@
 <br>
 <br>
 <br>
-
 <div class="text-white"><h1 class="title">reference</h1></div>
-
 <div class="UserDetail">
  <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
@@ -31,7 +29,6 @@
   </ul>
  </div>
 </div>
-
 </div>
 </body>
 </html>

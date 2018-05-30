@@ -50,7 +50,6 @@ public class PurchaseHistoryList extends HttpServlet {
 
 			//ユーザーIDをセッションから取得
 			int userId =u.getId();
-
 			//購入履歴一覧を取得
 			ArrayList<BuyDataBeans>buylist = BuyDao.getBuyDataBeansListByUserId(userId);
 			//購入履歴がなかったらmainへ戻る

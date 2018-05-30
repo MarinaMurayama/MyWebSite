@@ -11,26 +11,28 @@
 </head>
 <body>
 <jsp:include page="/base/headder.jsp" />
+<br>
 <div class="itemdetail">
 <div class="card">
-<form action="ItemAdd" method="POST">
-<div class="form-group row">
-<input type="hidden" value="${itemDetail.id}" name="id">
-</div>
-  	<div class="card-body">
+	<form action="ItemAdd" method="POST">
+		<div class="form-group row">
+		<input type="hidden" value="${itemDetail.id}" name="id">
+		</div>
+  		<div class="card-body">
     	<h5 class="card-title">${itemDetail.name}</h5>
     	<p class="card-text">${itemDetail.detail}</p>
     	<p class="card-text">Price: ${itemDetail.price}円</p>
     	<button class="btn btn-secondary btn-lg" type="submit">
-		&#x1F6D2;Add ShoppingCart
+			&#x1F6D2;Add ShoppingCart
 		</button>
-  	</div>
-  <img class="card-img-bottom" src="${itemDetail.item_img}" alt="Card image cap">
-</form>
+  		</div>
+  		<img class="card-img-bottom" src="${itemDetail.item_img}" alt="Card image cap">
+	</form>
 </div>
 </div>
     <div class="syoppingtitle">
 			<a href="Onlineshop_top">Back</a>
 	</div>
+<br>
 </body>
 </html>

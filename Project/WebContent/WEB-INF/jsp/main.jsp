@@ -58,8 +58,6 @@
   </a>
 </div>
 </div>
-
-
 <br>
 <br>
 <br>
@@ -67,7 +65,7 @@
 <h2 class="syoppingtitle">TOPICS</h2>
 	<div class="col s12">
 				<div class="maintable2">
-							<table class="table">
+						<table class="table">
 								<thead>
 									<tr>
 										<th scope="col"></th>
@@ -98,9 +96,9 @@
 										</td>
 									</tr>
 								</tbody>
-								</table>
-				</div>
-	</div>
+							</table>
+				 	</div>
+		</div>
 <br>
 <br>
 <br>
@@ -162,8 +160,8 @@
 									</tr>
 								</tbody>
 								</table>
-				</div>
-	</div>
+					</div>
+</div>
 <br>
 <br>
 <br>

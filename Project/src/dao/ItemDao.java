@@ -549,12 +549,12 @@ public class ItemDao {
 
 
 	/**
-	 * 商品総数を取得
-	 *
+	 * 作成中
+	 *商品総数を取得
 	 * @param searchWord
 	 * @return
 	 * @throws SQLException
-	 */
+
 	public static double getItemCount(String searchWord) throws SQLException {
 		Connection con = null;
 		PreparedStatement st = null;
@@ -576,7 +576,7 @@ public class ItemDao {
 				con.close();
 			}
 		}
-	}
+	} */
 
 	/**
 	 * ★商品検索(BEANS NAVI)

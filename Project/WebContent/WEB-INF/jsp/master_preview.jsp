@@ -12,21 +12,21 @@
 <jsp:include page="/base/headder.jsp" />
 <div class="itemdetail">
 <div class="card">
-<form action="ItemAdd" method="POST">
-  <div class="card-body">
-    <h5 class="card-title">${Itemdata.name}</h5>
-    <p class="card-text">${Itemdata.detail}</p>
-    <p class="card-text">Price: ${Itemdata.price}円</p>
-    <p class="btn btn-secondary btn-lg" >
-	&#x1F6D2;Add ShoppingCart
-	</p>
-  </div>
-  <img class="card-img-bottom" src="${Itemdata.item_img}" alt="Card image cap">
+	<form action="ItemAdd" method="POST">
+  		<div class="card-body">
+    		<h5 class="card-title">${Itemdata.name}</h5>
+    		<p class="card-text">${Itemdata.detail}</p>
+    		<p class="card-text">Price: ${Itemdata.price}円</p>
+    		<p class="btn btn-secondary btn-lg" >
+			&#x1F6D2;Add ShoppingCart
+			</p>
+  		</div>
+  		<img class="card-img-bottom" src="${Itemdata.item_img}" alt="Card image cap">
   </form>
 </div>
 </div>
-<div class="link">
-<a href="Master">戻る</a>
-</div>
+		<div class="link">
+			<a href="Master">戻る</a>
+		</div>
 </body>
 </html>

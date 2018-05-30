@@ -29,8 +29,7 @@ public class Cart extends HttpServlet {
     }
 
 	/**
-	 * ヘッダーのCartアイコンを押すと動作。
-	 * カートを持っているか、カート内に商品がなかったらエラーメッセージを画面に表示
+	 * カート内の商品表示。もしカート内に商品がなかったらエラーメッセージを画面に表示
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

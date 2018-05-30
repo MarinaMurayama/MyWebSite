@@ -32,29 +32,28 @@ public class Master extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 商品マスタ画面表示
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	//ログインセッションがない場合、ログイン画面にリダイレクトさせる
-
 		HttpSession session = request.getSession();
 		UserDataBeans u = (UserDataBeans)session.getAttribute("userInfo");
 
-		 if( u == null){
-		  response.sendRedirect("login");
-		  return;
-		}
+		 	if( u == null){
+		 		response.sendRedirect("login");
+		 		return;
+		 	}
 
 	// 商品一覧情報を取得
-	ItemDao itemDao = new ItemDao();
-	List<ItemDataBeans> itemList = itemDao.findAll();
+		 ItemDao itemDao = new ItemDao();
+		 List<ItemDataBeans> itemList = itemDao.findAll();
 
-	request.setAttribute("itemList", itemList);
+		 request.setAttribute("itemList", itemList);
 
 	// ユーザ一覧のjspにフォワード
-	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master.jsp");
-	dispatcher.forward(request, response);
+		 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master.jsp");
+		 dispatcher.forward(request, response);
 	}
 
 	/**
@@ -66,15 +65,15 @@ public class Master extends HttpServlet {
 
 			try {
 				// 入力した情報を全て取得する
-				String Word = request.getParameter("word");
+			String Word = request.getParameter("word");
 
-				ItemDao itemDao = new ItemDao();
-				List<ItemDataBeans> itemList = itemDao.getItemsByItemName(Word);
+			ItemDao itemDao = new ItemDao();
+			List<ItemDataBeans> itemList = itemDao.getItemsByItemName(Word);
 
-				request.setAttribute("itemList",itemList);
+			request.setAttribute("itemList",itemList);
 
-		        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master.jsp");
-				dispatcher.forward(request, response);
+		    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/master.jsp");
+			dispatcher.forward(request, response);
 
 			} catch (SQLException e) {
 					e.printStackTrace();

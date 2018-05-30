@@ -18,7 +18,7 @@
 <div class="dateform">
 <form class="p-3 mb-2 bg-white text-dark" action="Update" method="post">
 	<h1 class="title" >UP DATE</h1>
-	${errMsg1}
+		${errMsg1}
   		<div class="form-group row">
     		<label for="staticLoginID" class="col-sm-2 col-form-label">ログインID</label>
     		<div class="col-sm-10">
@@ -58,13 +58,11 @@
 	<div class="button_wrapper">
 	  <button type="submit" class="btn btn-secondary btn-lg">OK</button>
 	</div>
-<div class="link">
-<a href="MemberList">Back</a>
-</div>
-
+			<div class="link">
+				<a href="MemberList">Back</a>
+			</div>
 </form>
 </div>
-
 </div>
 </body>
 </html>

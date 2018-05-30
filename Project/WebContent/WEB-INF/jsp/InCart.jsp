@@ -14,17 +14,17 @@
 <div class="syoppingtitle" >${cartMessage}</div>
 <br>
 <h1 class="syoppingtitle" >カート内の中身 &#x1F6D2;</h1>
-<div class="syoppingtitle">
-	<a href="main">TOPへ戻る</a>
-</div>
-<div class="syoppingtitle">
-	<a href="Onlineshop_top">ONLINE SHOPへ戻る</a>
-</div>
+		<div class="syoppingtitle">
+			<a href="main">TOPへ戻る</a>
+		</div>
+		<div class="syoppingtitle">
+			<a href="Onlineshop_top">ONLINE SHOPへ戻る</a>
+		</div>
 <br>
 <form action="ItemDelete" method="post" class="shoppingcart">
-<div class="form-inline">
-	 <c:forEach var="item" items="${cart}" >
-		<div class="card" style="width: 18rem; height: 30rem;">
+	<div class="form-inline">
+	 	<c:forEach var="item" items="${cart}" >
+			<div class="card" style="width: 18rem; height: 30rem;">
   			<img class="card-img-top" src="${item.item_img}">
  		 	<div class="card-body">
    		 	<h5 class="card-title">${item.name}</h5>
@@ -32,30 +32,26 @@
    		 	<p>${item.price}円</p>
    		 	<input type="checkbox"  name="delete_item_id_list" value="${item.id}" /><label >削除</label>
  		 	</div>
+			</div>
+		</c:forEach>
+	</div>
+<br>
+  	<div class="syoppingtitle">
+		<div class="col-xs-9 form-inline">
+			<div class="col s6 center-align">
+				<button class="btn btn-secondary btn-lg" type="submit" name="action">
+				<i class="material-icons right">&#10004;　削除</i>
+				</button>
+			</div>
+			<div class="col s6 center-align">
+				<a  class="btn btn-secondary btn-lg" href="BuyCheck">
+				<i class="material-icons right" >購入手続きへ 　＞</i>
+				</a>
+			</div>
 		</div>
-	</c:forEach>
-</div>
-<br>
-  			<div class="syoppingtitle">
-				<div class="col-xs-9 form-inline">
-						<div class="col s6 center-align">
-							<button class="btn btn-secondary btn-lg" type="submit" name="action">
-								<i class="material-icons right">&#10004;　削除</i>
-							</button>
-						</div>
-						<div class="col s6 center-align">
-							<a  class="btn btn-secondary btn-lg" href="BuyCheck">
-							<i class="material-icons right" >購入手続きへ 　＞</i>
-							</a>
-						</div>
-				</div>
-				</div>
-
-			</form>
+	</div>
+</form>
 <br>
 <br>
-
-
-
 </body>
 </html>

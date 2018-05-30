@@ -40,7 +40,6 @@ public class Item extends HttpServlet {
 			System.out.println(id); //確認用
 
 			//idを引数にして、idに紐づく商品情報を取得
-
 			ItemDataBeans itemDetail = ItemDao.getItemByItemID(id);
 			request.setAttribute("itemDetail", itemDetail);
 

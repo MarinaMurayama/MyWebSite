@@ -25,16 +25,14 @@
 <br>
 <br>
 <br>
-		<div class="col s12 form-inline">
-				<div class="col s6 center-align">
-					<a href="Onlineshop_top" class="btn btn-secondary">＜＜引き続き買い物をする</a>
-				</div>
-				<div class="col s6 center-align">
-					<a href="PurchaseHistoryList" class="btn btn-secondary">購入履歴へ＞＞</a>
-				</div>
-			</div>
-
+	<div class="col s12 form-inline">
+		<div class="col s6 center-align">
+			<a href="Onlineshop_top" class="btn btn-secondary">＜＜引き続き買い物をする</a>
+		</div>
+		<div class="col s6 center-align">
+			<a href="PurchaseHistoryList" class="btn btn-secondary">購入履歴へ＞＞</a>
+		</div>
 	</div>
-
+</div>
 </body>
 </html>

@@ -28,7 +28,7 @@ public class Delete extends HttpServlet {
     }
 
 	/**
-	 * //memberListから受け取った対象者のidを使用し、ﾕｰｻﾞﾃﾞｰﾀを取得。ﾘｸｴｽﾄｽｺｰﾌﾟにｾｯﾄしてﾌｫﾜｰﾄﾞ。
+	 * 削除確認画面にユーザデータを表示
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -38,19 +38,19 @@ public class Delete extends HttpServlet {
 		UserDao userDao = new UserDao();
 		UserDataBeans Userdata = userDao.findByUserDetail(id);
 
-		request.setAttribute("Userdata",Userdata);  //ﾘｸｴｽﾄｽｺｰﾌﾟにｲﾝｽﾀﾝｽを保存(属性名、ｲﾝｽﾀﾝｽ)
+		request.setAttribute("Userdata",Userdata);
 		UserDataBeans u = (UserDataBeans)request.getAttribute("Userdata");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Delete.jsp");
-		dispatcher.forward(request, response);   //削除画面にﾃﾞｰﾀを渡す。
+		dispatcher.forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * ユーザデータを削除
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");  //削除画面でokﾎﾞﾀﾝを押したらformでidﾃﾞｰﾀが送られてくるので取得する
-		System.out.println(id);  //念のためｺﾝｿｰﾙに出力
+		String id = request.getParameter("id");
+		System.out.println(id);
 
 		UserDao userDao = new UserDao();
 		userDao.delete(id);

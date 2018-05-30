@@ -38,20 +38,16 @@
   </tbody>
 </table>
 </div>
-
-
 <div class="p-3 mb-2 bg-white text-dark" >
-<form class="login-form" action="MasterItemDelete" method="post">
+	<form class="login-form" action="MasterItemDelete" method="post">
+		<div class="button_wrapper">
+		<button type="submit" class="btn btn-secondary" >削除</button>
+		<input type="hidden" value="${Itemdata.id}" class="form-control"  name="id">
+		</div>
+	</form>
 	<div class="button_wrapper">
-	<button type="submit" class="btn btn-secondary" >削除</button>
-	<input type="hidden" value="${Itemdata.id}" class="form-control"  name="id">
+			<a type="button" class="btn btn-secondary"  href="Master">キャンセル</a>
 	</div>
-</form>
-<div class="button_wrapper">
-	<a type="button" class="btn btn-secondary"  href="Master">キャンセル</a>
 </div>
-</div>
-
-
 </body>
 </html>
