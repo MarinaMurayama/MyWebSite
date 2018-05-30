@@ -29,24 +29,13 @@ public class Buyresult extends HttpServlet {
      */
     public Buyresult() {
         super();
-        // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
 
 	/**
 	 * 購入・終了したら購入完了ページへフォワード
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-				HttpSession session = request.getSession();
+			HttpSession session = request.getSession();
 		try {
 			// セッションからカート情報を取得・取得したらセッションを閉じる
 			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>)session.getAttribute("cart");
@@ -69,10 +58,9 @@ public class Buyresult extends HttpServlet {
 			dispatcher.forward(request, response);
 
 			} catch (Exception e) {
-
-			e.printStackTrace();
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
-			dispatcher.forward(request, response);
+				e.printStackTrace();
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+				dispatcher.forward(request, response);
 			}
 		}
 
