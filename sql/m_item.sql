@@ -12,7 +12,6 @@ CREATE TABLE m_item(
  update_date DATETIME NOT NULL
  ) 
 
-SELECT * FROM m_item;
 
 
 

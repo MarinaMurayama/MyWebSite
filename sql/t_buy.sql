@@ -6,4 +6,3 @@ CREATE TABLE  t_buy(
  create_date datetime NOT NULL
 ) 
 
-SELECT * FROM t_buy;

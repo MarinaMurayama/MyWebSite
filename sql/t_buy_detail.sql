@@ -5,4 +5,3 @@ CREATE TABLE t_buy_detail(
  count int(11) NOT NULL
 )
 
-SELECT * FROM c_user;

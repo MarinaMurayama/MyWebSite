@@ -8,5 +8,4 @@ INSERT INTO m_delivery VALUES (1, '通常配送',0);
 INSERT INTO m_delivery VALUES (2, '日時指定配送',200);
 INSERT INTO m_delivery VALUES (3, '特別配送',500);
 
-SELECT * FROM  m_delivery;
 
