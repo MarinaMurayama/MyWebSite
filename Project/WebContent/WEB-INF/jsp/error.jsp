@@ -17,6 +17,8 @@
 <br>
 <br>
 <br>
+<h1 class="syoppingtitle" >＼ Sorry... ／</h1>
+<br>
 <h1 class="syoppingtitle" >申し訳ありません</h1>
 <br>
 <h2 class="syoppingtitle" >エラーが発生しました</h2>

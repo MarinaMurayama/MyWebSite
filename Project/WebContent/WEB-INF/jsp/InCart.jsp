@@ -33,6 +33,7 @@
    		 	<h5 class="card-title">${item.name}</h5>
    		 	<p class="card-text">${item.detail}</p>
    		 	<p>${item.price}円</p>
+   		 	<p>${item.count}個</p>
    		 	<input type="checkbox"  name="delete_item_id_list" value="${item.id}" /><label >削除</label>
  		 	</div>
 			</div>

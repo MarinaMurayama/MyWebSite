@@ -26,7 +26,7 @@
 							<th scope="col"></th>
 							<th scope="col">購入日時</th>
 							<th scope="col">配送方法</th>
-							<th scope="col">購入金額</th>
+							<th scope="col">商品合計金額</th>
 						</tr>
 					</thead>
 					<tbody>

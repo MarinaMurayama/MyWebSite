@@ -33,8 +33,7 @@ public class ItemAdd extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 	/**
@@ -44,17 +43,30 @@ public class ItemAdd extends HttpServlet {
 
 			HttpSession session = request.getSession();
 		try {
-			//選択された商品IDを取得
+			//選択された商品IDと個数を取得
 			int id = Integer.parseInt(request.getParameter("id"));
-			//対象のアイテム情報を取得して情報セット
+			int count = Integer.parseInt(request.getParameter("count"));
+
+			//対象のアイテム情報と個数をセット
 			ItemDataBeans item = ItemDao.getItemByItemID(id);
+			item.setCount(count);
 			request.setAttribute("item", item);
 
 			//カートを取得・セッションにカートがない場合はカートを作成
 			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) session.getAttribute("cart");
-				if (cart == null) {
-					cart = new ArrayList<ItemDataBeans>();
-				}
+			if (cart == null) {
+				cart = new ArrayList<ItemDataBeans>();
+			}
+
+			// 同じIDの商品があったらその商品の個数をitem.Countに追加。商品情報が重複しないようにitem情報を削除
+				for (ItemDataBeans cartitem : cart){
+					if (cartitem.getId() == id) {
+						 int Cartcount = cartitem.getCount();
+						 item.setCount(Cartcount+count);
+						 cart.remove(cartitem);
+							break;
+						}
+					}
 
 			//カートに商品を追加・カートの情報を更新
 			cart.add(item);

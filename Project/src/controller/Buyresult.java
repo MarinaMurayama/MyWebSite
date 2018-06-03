@@ -51,6 +51,7 @@ public class Buyresult extends HttpServlet {
 				BuyDetailDataBeans bddb = new BuyDetailDataBeans();
 				bddb.setBuyId(buyId);
 				bddb.setItemId(cartInItem.getId());
+				bddb.setCount(cartInItem.getCount());
 				BuyDetailDao.insertBuyDetail(bddb);
 			}
 

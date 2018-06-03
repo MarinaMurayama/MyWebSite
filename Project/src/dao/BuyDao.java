@@ -56,7 +56,7 @@ public class BuyDao {
 		}
 
 		/**
-		 * ★購入IDによる購入情報検索
+		 * ★UserBuyDetail(購入IDによる購入詳細情報検索)
 		 * @param buyId
 		 * @return BuyDataBeans
 		 * 				購入情報のデータを持つJavaBeansのリスト
@@ -106,7 +106,7 @@ public class BuyDao {
 
 
 		/**
-		 * ★ユーザデータ画面の購入履歴データ取得
+		 * ★PurchaseHistoryList(指定されたユーザの購入履歴一覧データ取得)
 		 * @param userId
 		 * @return buyDataList(JavaBeansのリスト)
 		 * @throws SQLException

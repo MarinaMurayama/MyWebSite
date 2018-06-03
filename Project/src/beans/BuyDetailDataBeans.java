@@ -7,6 +7,8 @@ public class BuyDetailDataBeans implements Serializable  {
 	private int buyId;
 	private int itemId;
 
+	private int count ; //購入個数
+
 	public int getId() {
 		return id;
 	}
@@ -24,6 +26,12 @@ public class BuyDetailDataBeans implements Serializable  {
 	}
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 }

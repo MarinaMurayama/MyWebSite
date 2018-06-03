@@ -16,6 +16,8 @@ public class ItemDataBeans implements Serializable {
 	private String createDate;  //作成日時
 	private String updateDate;  //更新日時
 
+	private int count ; //購入個数
+
 
 	// 全てのデータをセットするコンストラクタ(onlineshop_topとmasterで使用)
 	public ItemDataBeans(int id, String itemnum, String taste,String img,String name,String detail,String category,int stocks,int price,String createDate,String updateDate) {
@@ -111,6 +113,16 @@ public class ItemDataBeans implements Serializable {
 	}
 	public void setUpdateDate(String updateDate) {
 		this.updateDate = updateDate;
+	}
+
+
+	public int getCount() {
+		return count;
+	}
+
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 

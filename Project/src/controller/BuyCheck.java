@@ -71,7 +71,8 @@ public class BuyCheck extends HttpServlet {
 			//ログインセッションがない場合、ログイン画面にリダイレクトさせる
 			UserDataBeans u = (UserDataBeans)session.getAttribute("userInfo");
 				if( u == null){
-					response.sendRedirect("Login");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+					dispatcher.forward(request, response);
 					return;
 				}
 
@@ -102,7 +103,6 @@ public class BuyCheck extends HttpServlet {
 			dispatcher.forward(request, response);
 
 		} catch (Exception e) {
-			//TODO エラー処理
 			e.printStackTrace();
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
 			dispatcher.forward(request, response);

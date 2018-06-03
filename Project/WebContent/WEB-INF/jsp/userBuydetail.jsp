@@ -26,7 +26,9 @@
 									<tr>
 										<th scope="col">商品画像</th>
 										<th scope="col">商品名</th>
-										<th scope="col">金額</th>
+										<th scope="col">個数</th>
+										<th scope="col">単価</th>
+										<th scope="col">小計</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -34,7 +36,9 @@
 										<tr>
 											<td ><img src="${item.item_img}" alt="サンプル" class="master-top"></td>
 											<td >${item.name}</td>
+											<td>${item.count}個</td>
 											<td>${item.price}円</td>
+											<td>${item.price * item.count}円</td>
 										</tr>
 								 	</c:forEach>
 								</tbody>

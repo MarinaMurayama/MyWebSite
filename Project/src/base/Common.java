@@ -97,7 +97,7 @@ public class Common {
 	public static int getTotalPrice(ArrayList<ItemDataBeans> cart) {
 		int total = 0;
 		for (ItemDataBeans item : cart) {
-			total += item.getPrice();
+			total += item.getPrice()*item.getCount();
 		}
 		return total;
 	}
