@@ -10,7 +10,7 @@ import beans.DeliveryMethodDataBeans;
 
 public class DeliveryMethodDAO {
 
-	//インスタンスオブジェクトを返却させてコードの簡略化
+	     //インスタンスオブジェクトを返却させてコードの簡略化
 			public static DeliveryMethodDAO getInstance() {
 				return new DeliveryMethodDAO();
 			}

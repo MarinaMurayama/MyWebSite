@@ -135,13 +135,13 @@ public class UserDataBeans implements Serializable{
 		this.updateDate = updateDate;
 	}
 
-	public String getBirthDateStr() { //フォーマット修正して出力したい時に使用
+	public String getBirthDateStr() { //フォーマット修正して出力
 		String str = null;
 		str = new SimpleDateFormat("yyyy-MM-dd").format(birthDate);
 		return str;
 	}
 
-	public String getBirthDateFmt() {  //フォーマット修正して出力したい時に使用
+	public String getBirthDateFmt() {  //フォーマット修正して出力
 		String str = null;
 		str = new SimpleDateFormat("yyyy-MM-dd").format(birthDate);
 		return str;

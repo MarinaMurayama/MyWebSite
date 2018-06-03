@@ -25,7 +25,6 @@ public class Item extends HttpServlet {
      */
     public Item() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -52,21 +51,4 @@ public class Item extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		/*
-		 *  Cart: カートの中身
-		 * ItemAdd: 商品追加
-		 * ItemDelete :商品削除
-		 * Buy : 商品購入
-		 * BuyConfilm :購入商品確認画面
-		 * BuyResult : 購入完了
-		 */
-
-	}
-
 }

@@ -20,12 +20,8 @@ import dao.UserDao;
 public class Update extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public Update() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

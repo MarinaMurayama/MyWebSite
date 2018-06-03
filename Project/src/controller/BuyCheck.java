@@ -30,7 +30,6 @@ public class BuyCheck extends HttpServlet {
      */
     public BuyCheck() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

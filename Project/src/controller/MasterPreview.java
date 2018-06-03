@@ -25,7 +25,6 @@ public class MasterPreview extends HttpServlet {
      */
     public MasterPreview() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -50,14 +49,6 @@ public class MasterPreview extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
 			dispatcher.forward(request, response);
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

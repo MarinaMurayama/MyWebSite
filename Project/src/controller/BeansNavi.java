@@ -26,7 +26,6 @@ public class BeansNavi extends HttpServlet {
      */
     public BeansNavi() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

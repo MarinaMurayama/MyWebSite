@@ -26,15 +26,7 @@ public class ItemAdd extends HttpServlet {
      */
     public ItemAdd() {
         super();
-        // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
 
 	/**
 	 * 商品をカートに追加する(from: item.jsp)

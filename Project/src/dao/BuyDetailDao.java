@@ -11,7 +11,8 @@ import beans.BuyDetailDataBeans;
 import beans.ItemDataBeans;
 
 public class BuyDetailDao {
-	//インスタンスオブジェクトを返却させてコードの簡略化
+
+	    //インスタンスオブジェクトを返却させてコードの簡略化
 		public static BuyDetailDao getInstance() {
 			return new BuyDetailDao();
 		}

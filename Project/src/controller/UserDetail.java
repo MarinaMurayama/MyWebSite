@@ -19,12 +19,8 @@ import dao.UserDao;
 public class UserDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public UserDetail() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -48,13 +44,4 @@ public class UserDetail extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UserDetail.jsp");
 				dispatcher.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

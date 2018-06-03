@@ -13,7 +13,7 @@ import beans.BuyDataBeans;
 
 public class BuyDao {
 
-	//インスタンスオブジェクトを返却させてコードの簡略化
+	   //インスタンスオブジェクトを返却させてコードの簡略化
 		public static BuyDao getInstance() {
 			return new BuyDao();
 		}

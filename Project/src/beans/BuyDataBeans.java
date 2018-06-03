@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class BuyDataBeans implements Serializable {
+
 	private int id;
 	private int userId;
 	private int totalPrice;
@@ -15,7 +16,6 @@ public class BuyDataBeans implements Serializable {
 	public BuyDataBeans() {
 
 	}
-
 
 	public int getId() {
 		return id;

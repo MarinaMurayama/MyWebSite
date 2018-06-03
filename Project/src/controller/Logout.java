@@ -21,7 +21,6 @@ public class Logout extends HttpServlet {
      */
     public Logout() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -37,13 +36,4 @@ public class Logout extends HttpServlet {
 		System.out.println("logout");
 		response.sendRedirect("main");
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

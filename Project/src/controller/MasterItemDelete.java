@@ -26,7 +26,6 @@ public class MasterItemDelete extends HttpServlet {
      */
     public MasterItemDelete() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

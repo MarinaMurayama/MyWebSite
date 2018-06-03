@@ -21,12 +21,8 @@ import dao.UserDao;
 public class MemberList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public MemberList() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -54,13 +50,4 @@ public class MemberList extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/memberList.jsp");
 				dispatcher.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO 機能更新時にユーザ検索機能をつけても良いかも。
-		doGet(request, response);
-	}
-
 }

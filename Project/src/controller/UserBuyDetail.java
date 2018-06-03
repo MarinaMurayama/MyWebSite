@@ -23,9 +23,6 @@ import dao.BuyDetailDao;
 public class UserBuyDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public UserBuyDetail() {
         super();
     }
@@ -63,12 +60,4 @@ public class UserBuyDetail extends HttpServlet {
 		}
 
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-
 }
