@@ -51,6 +51,7 @@ public class ItemDao {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
+
         } finally {
             // データベース切断
             if (conn != null) {
@@ -93,7 +94,6 @@ public class ItemDao {
             e.printStackTrace();
             return false;
         }
-
     }
 
     /**
